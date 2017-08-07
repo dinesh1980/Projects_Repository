@@ -1,0 +1,50 @@
+﻿@model PagedList.IPagedList<Polls.Models.MyPolls>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+<section id="public-questions" class="container">
+    <div class='card list-group-card'>
+        <div class='card-block'>
+            <h2 class='card-title'>
+                Recently Completed Book Polls
+            </h2>
+            <ul class="nav nav-pills nav-outlined nav-centered">
+                <li class="nav-item">
+                    <a href="https://www.pickfu.com/books/book-covers" class="nav-link">Book Covers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.pickfu.com/books/book-descriptions" class="nav-link">Book Descriptions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.pickfu.com/books/book-titles" class="nav-link">Book Titles</a>
+                </li>
+            </ul>
+        </div>
+        <ul class='list-group-flush list-group' id="example">
+            @foreach (var item in Model)
+            {
+                <li class='list-group-item'>
+                    <div class='pull-right'>
+                        <span class="poll-audience" style=""> <i class="fa fa-group fa-fw"></i> <span class='label label-default'>50 Respondents</span> <span class='label label-default'>General Population</span> </span>
+                    </div>
+                    <a href="https://www.pickfu.com/books/book-titles/which-book-title-is-more-appealing-CHKJJ0SY">@item.question ?</a>
+                </li>
+            }
+
+
+        </ul>
+        <br />
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page }))
+    </div>
+ 
+</section>

@@ -1,0 +1,172 @@
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\ApplicationInsights.config
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\csc.exe
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\System.Collections.Immutable.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\vbc.exe
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\VBCSCompiler.exe
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\roslyn\VBCSCompiler.exe.config
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Polls.dll.config
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Polls.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Polls.pdb
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Antlr3.Runtime.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\EntityFramework.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\EntityFramework.SqlServer.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AI.Web.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AI.WindowsServer.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.ApplicationInsights.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.Google.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Web.Infrastructure.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Newtonsoft.Json.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Owin.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\RestSharp.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.Helpers.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.Mvc.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.Optimization.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.Razor.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.WebPages.Deployment.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.WebPages.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.WebPages.Razor.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\WebGrease.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AI.Web.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AI.WindowsServer.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.ApplicationInsights.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\RestSharp.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.Helpers.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.Mvc.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.Optimization.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.Razor.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.WebPages.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.WebPages.Deployment.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\System.Web.WebPages.Razor.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Antlr3.Runtime.pdb
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Newtonsoft.Json.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\EntityFramework.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\EntityFramework.SqlServer.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.Google.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\obj\Debug\Polls.dll
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\obj\Debug\Polls.pdb
+c:\users\sukh-pc\documents\visual studio 2015\Projects\Polls\Polls\obj\Debug\Polls.csprojResolveAssemblyReference.cache
+E:\Polls\Polls\obj\Debug\Polls.csprojResolveAssemblyReference.cache
+E:\Polls\Polls\obj\Debug\Polls.pdb
+E:\Polls\Polls\bin\ApplicationInsights.config
+E:\Polls\Polls\bin\roslyn\csc.exe
+E:\Polls\Polls\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Polls\Polls\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Polls\Polls\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Polls\Polls\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Polls\Polls\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Polls\Polls\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Polls\Polls\bin\roslyn\System.Collections.Immutable.dll
+E:\Polls\Polls\bin\roslyn\System.Reflection.Metadata.dll
+E:\Polls\Polls\bin\roslyn\vbc.exe
+E:\Polls\Polls\bin\roslyn\VBCSCompiler.exe
+E:\Polls\Polls\bin\roslyn\VBCSCompiler.exe.config
+E:\Polls\Polls\bin\Polls.dll.config
+E:\Polls\Polls\bin\Polls.dll
+E:\Polls\Polls\bin\Polls.pdb
+E:\Polls\Polls\bin\Antlr3.Runtime.dll
+E:\Polls\Polls\bin\EntityFramework.dll
+E:\Polls\Polls\bin\EntityFramework.SqlServer.dll
+E:\Polls\Polls\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Polls\Polls\bin\Microsoft.AI.DependencyCollector.dll
+E:\Polls\Polls\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Polls\Polls\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Polls\Polls\bin\Microsoft.AI.Web.dll
+E:\Polls\Polls\bin\Microsoft.AI.WindowsServer.dll
+E:\Polls\Polls\bin\Microsoft.ApplicationInsights.dll
+E:\Polls\Polls\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Polls\Polls\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Polls\Polls\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Polls\Polls\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Polls\Polls\bin\Microsoft.Owin.dll
+E:\Polls\Polls\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Polls\Polls\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Polls\Polls\bin\Microsoft.Owin.Security.dll
+E:\Polls\Polls\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Polls\Polls\bin\Microsoft.Owin.Security.Google.dll
+E:\Polls\Polls\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Polls\Polls\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Polls\Polls\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Polls\Polls\bin\Microsoft.Web.Infrastructure.dll
+E:\Polls\Polls\bin\Newtonsoft.Json.dll
+E:\Polls\Polls\bin\Owin.dll
+E:\Polls\Polls\bin\RestSharp.dll
+E:\Polls\Polls\bin\System.Web.Helpers.dll
+E:\Polls\Polls\bin\System.Web.Mvc.dll
+E:\Polls\Polls\bin\System.Web.Optimization.dll
+E:\Polls\Polls\bin\System.Web.Razor.dll
+E:\Polls\Polls\bin\System.Web.WebPages.Deployment.dll
+E:\Polls\Polls\bin\System.Web.WebPages.dll
+E:\Polls\Polls\bin\System.Web.WebPages.Razor.dll
+E:\Polls\Polls\bin\WebGrease.dll
+E:\Polls\Polls\bin\Microsoft.AI.DependencyCollector.xml
+E:\Polls\Polls\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Polls\Polls\bin\Microsoft.AI.Web.xml
+E:\Polls\Polls\bin\Microsoft.AI.WindowsServer.xml
+E:\Polls\Polls\bin\Microsoft.ApplicationInsights.xml
+E:\Polls\Polls\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Polls\Polls\bin\RestSharp.xml
+E:\Polls\Polls\bin\System.Web.Helpers.xml
+E:\Polls\Polls\bin\System.Web.Mvc.xml
+E:\Polls\Polls\bin\System.Web.Optimization.xml
+E:\Polls\Polls\bin\System.Web.Razor.xml
+E:\Polls\Polls\bin\System.Web.WebPages.xml
+E:\Polls\Polls\bin\System.Web.WebPages.Deployment.xml
+E:\Polls\Polls\bin\System.Web.WebPages.Razor.xml
+E:\Polls\Polls\bin\Antlr3.Runtime.pdb
+E:\Polls\Polls\bin\Newtonsoft.Json.xml
+E:\Polls\Polls\bin\EntityFramework.xml
+E:\Polls\Polls\bin\EntityFramework.SqlServer.xml
+E:\Polls\Polls\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Polls\Polls\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Polls\Polls\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Polls\Polls\bin\Microsoft.Owin.xml
+E:\Polls\Polls\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Polls\Polls\bin\Microsoft.Owin.Security.xml
+E:\Polls\Polls\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Polls\Polls\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Polls\Polls\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Polls\Polls\bin\Microsoft.Owin.Security.Google.xml
+E:\Polls\Polls\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Polls\Polls\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Polls\Polls\obj\Debug\Polls.dll
+E:\Polls\Polls\bin\PagedList.dll
+E:\Polls\Polls\bin\PagedList.Mvc.dll
+E:\Polls\Polls\bin\PagedList.xml
+E:\Polls\Polls\bin\PagedList.Mvc.xml
