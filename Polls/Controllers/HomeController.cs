@@ -19,7 +19,7 @@ namespace Polls.Controllers
             GetMyPollsModel pollsparameter = new GetMyPollsModel();
             pollsparameter.pageSize = 20;
             pollsparameter.pageNumber = (page ?? 1);
-            var client = new RestClient("http://demo.honeyshyam.com/api/Polls/GetMyAllPolls");
+            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetMyAllPolls");
             var request = new RestRequest(Method.POST);
             request.AddHeader("token", loginRespone.token);
             request.AddHeader("userid", loginRespone.userId);
@@ -27,15 +27,60 @@ namespace Polls.Controllers
             request.AddJsonBody(pollsparameter);
             IRestResponse<List<MyPolls>> response = client.Execute<List<MyPolls>>(request);
             List<MyPolls> pools = null;
-           
+
             if (response.StatusCode.ToString() == "OK")
             {
-                
+
                 pools = response.Data.ToList();
             }
             return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
 
-       
+        public ActionResult GetAllFilterCategories()
+        {
+            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
+            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetAllFilterCategories");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("content-type", "application/json");
+            request.AddHeader("userid", loginRespone.userId);
+            request.AddHeader("token", loginRespone.token);
+
+            IRestResponse<List<GetAllFilterbyCategoryResponse>> response = client.Execute<List<GetAllFilterbyCategoryResponse>>(request);
+
+            if (response.StatusCode.ToString() == "OK" && response.Data != null)
+            {
+
+                return View("Index", "Home"); // modify as per your need
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid Username/Password !!");
+            }
+            return View(); // modify as per your need
+        }
+
+        public ActionResult GetCategories()
+        {
+            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
+            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetCategories");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("content-type", "application/json");
+            request.AddHeader("userid", loginRespone.userId);
+            request.AddHeader("token", loginRespone.token);
+            IRestResponse<List<GetCategoriesResponse>> response = client.Execute<List<GetCategoriesResponse>>(request1);            
+            if (response.StatusCode.ToString() == "OK" && response.Data != null)
+            {
+
+                return View("Index", "Home"); // modify as per your need
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid Username/Password !!");
+            }
+            return View(); // modify as per your need
+        }
+
+
+
     }
 }

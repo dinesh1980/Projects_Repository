@@ -7,6 +7,7 @@ namespace Polls.Common
 {
     public class Common
     {
+        public static string ApirUrl = string.Empty;
     }
     public static class LoggedInUserDetails
     {

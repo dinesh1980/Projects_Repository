@@ -38,12 +38,13 @@ namespace Polls.Controllers
             obj.snsDeviceId = Guid.NewGuid().ToString();// "d4bc2ea4-1868-469b-a6c3-0f518e4f0218";
             login.newDevice = obj;
 
-            var client = new RestClient("http://demo.honeyshyam.com/api/Polls/Login");
+            var client = new RestClient(Common.Common.ApirUrl+"/api/Polls/Login");
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
             request.AddJsonBody(login);
 
-            IRestResponse<LoginResponse> response = client.Execute<LoginResponse>(request);
+            IRestResponse<LoginResponse> response = client.Execute<LoginResponse>(request);          
+
 
             if (response.StatusCode.ToString() == "OK" && response.Data.userId != null)
             {
