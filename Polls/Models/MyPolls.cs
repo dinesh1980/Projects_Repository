@@ -43,5 +43,6 @@ namespace Polls.Models
         public bool isAdult { get; set; }
         public DateTime completedOn { get; set; }
         public string tags { get; set; }
+        public int responseCompleted { get; set; }
     }
 }

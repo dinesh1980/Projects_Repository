@@ -16,15 +16,15 @@
                 Recently Completed Book Polls
             </h2>
             <ul class="nav nav-pills nav-outlined nav-centered">
-                <li class="nav-item">
-                    <a href="https://www.pickfu.com/books/book-covers" class="nav-link">Book Covers</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.pickfu.com/books/book-descriptions" class="nav-link">Book Descriptions</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.pickfu.com/books/book-titles" class="nav-link">Book Titles</a>
-                </li>
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <li class="nav-item">
+                        @Html.ActionLink((string)item.catName, "Index", new { catname = item.catName }, new { @class = "nav-link" })
+
+                    </li>
+                }
+
+
             </ul>
         </div>
         <ul class='list-group-flush list-group' id="example">
@@ -32,7 +32,7 @@
             {
                 <li class='list-group-item'>
                     <div class='pull-right'>
-                        <span class="poll-audience" style=""> <i class="fa fa-group fa-fw"></i> <span class='label label-default'>50 Respondents</span> <span class='label label-default'>General Population</span> </span>
+                        <span class="poll-audience" style=""> <i class="fa fa-group fa-fw"></i> <span class='label label-default'>@item.responseCompleted Respondents</span><span class="label label-success">@item.tags</span>  </span>
                     </div>
                     <a href="https://www.pickfu.com/books/book-titles/which-book-title-is-more-appealing-CHKJJ0SY">@item.question ?</a>
                 </li>
@@ -46,5 +46,5 @@
         @Html.PagedListPager(Model, page => Url.Action("Index",
     new { page }))
     </div>
- 
+
 </section>
