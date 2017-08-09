@@ -53,12 +53,12 @@ namespace Polls.Controllers
             request.AddHeader("userid", loginRespone.userId);
             request.AddJsonBody(profile.newProfileContact);
             request.AddHeader("content-type", "application/json");
-            IRestResponse<UpdateProfile> response = client.Execute<UpdateProfile>(request);
+            //IRestResponse<UpdateProfile> response = client.Execute<UpdateProfile>(request);
 
-            if (response.StatusCode.ToString() == "OK")
-            {
+            //if (response.StatusCode.ToString() == "OK")
+            //{
 
-            }
+            //}
 
             return View();
         }

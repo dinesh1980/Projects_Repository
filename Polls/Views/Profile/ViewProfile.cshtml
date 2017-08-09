@@ -1,7 +1,46 @@
 ﻿@model Polls.Models.Profile
 @{
-    ViewBag.Title = "ViewProfile";
+    ViewBag.Title = "View Profile";
 }
+<style>
+    section.section-list {
+        padding-bottom: 2rem;
+    }
+
+    header, section.section-list {
+        background-color: #f0f0f0;
+    }
+
+        header + section > .container {
+            padding-top: 1rem;
+        }
+
+    .card-block, .hero-box {
+        padding: 1.25rem;
+    }
+
+    .card, .hero-box {
+        position: relative;
+        display: block;
+        margin-bottom: .75rem;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: .15rem;
+    }
+
+    .card-title {
+        margin-bottom: .75rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .form-group {
+        /* margin-right: 42px; */
+        margin-left: 5px !important;
+    }
+</style>
 
 <section class="normal section-list">
 
@@ -11,130 +50,130 @@
             <div class="col-sm-8 col-sm-offset-2">
 
                 <section class="card card-block">
-                    <h1 class="card-title">View Personal Settings</h1>
-                    @using (@Html.BeginForm("ViewProfile", "Profile", FormMethod.Post))
-                    {
-                    <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="_method" type="hidden" value="put"><input name="authenticity_token" type="hidden" value="OC/YK3a2SukVl9xlFRaOPeMuyio51Z68p6Ghw1NYQLc="></div>
-                    <fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_login">User Name</label>
-                            @Html.TextBoxFor(model => model.userName, new { @class = "form-control" })
-                            @Html.HiddenFor(model => model.id)
-                            @Html.HiddenFor(model => model.profileId)
-                            @Html.HiddenFor(model => model.isEmailVerified)
-                            @Html.HiddenFor(model => model.token)
-                            @Html.HiddenFor(model => model.isPhoneVerified)
-                            @Html.HiddenFor(model => model.isCallVerified)
-                            @Html.HiddenFor(model => model.source)
-                            @Html.HiddenFor(model => model.userType)
-                            @Html.HiddenFor(model => model.buyCompanyPolls)
-                            @Html.HiddenFor(model => model.buyTurkPolls)
-                            @Html.HiddenFor(model => model.isRequiedApproval)
-                            @Html.HiddenFor(model => model.org)
-                            @Html.HiddenFor(model => model.emailInvites)
-                            @Html.HiddenFor(model => model.userId)
-                            @Html.HiddenFor(model => model.isActive)
-                            @Html.HiddenFor(model => model.userRole)
-                            @Html.HiddenFor(model => model.isCanRunFreePoll)
-                            @Html.HiddenFor(model => model.isBuyCredits)
-                            @Html.HiddenFor(model => model.isPartner)
-                            @Html.HiddenFor(model => model.departmentId)
+                    <h1 class="card-title">View Profile Settings</h1>
+                    @using (@Html.BeginForm("ViewProfile", "Profile", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div style="margin:0;padding:0;display:inline"></div>
+                        <div>
+                            <div class="form-group">
+                                <label class="" for="user_login">User Name</label>
+                                @Html.TextBoxFor(model => model.userName, new { @class = "form-control" })
+@Html.HiddenFor(model => model.id)
+@Html.HiddenFor(model => model.profileId)
+@Html.HiddenFor(model => model.isEmailVerified)
+@Html.HiddenFor(model => model.token)
+@Html.HiddenFor(model => model.isPhoneVerified)
+@Html.HiddenFor(model => model.isCallVerified)
+@Html.HiddenFor(model => model.source)
+@Html.HiddenFor(model => model.userType)
+@Html.HiddenFor(model => model.buyCompanyPolls)
+@Html.HiddenFor(model => model.buyTurkPolls)
+@Html.HiddenFor(model => model.isRequiedApproval)
+@Html.HiddenFor(model => model.org)
+@Html.HiddenFor(model => model.emailInvites)
+@Html.HiddenFor(model => model.userId)
+@Html.HiddenFor(model => model.isActive)
+@Html.HiddenFor(model => model.userRole)
+@Html.HiddenFor(model => model.isCanRunFreePoll)
+@Html.HiddenFor(model => model.isBuyCredits)
+@Html.HiddenFor(model => model.isPartner)
+@Html.HiddenFor(model => model.departmentId)
 
-                            @Html.HiddenFor(model => model.newProfileContact.countryCode)
-                            @Html.HiddenFor(model => model.newProfileContact.userId)
-                            @Html.HiddenFor(model => model.newProfileContact.ownerId)
-                            @Html.HiddenFor(model => model.newProfileContact.id)
+@Html.HiddenFor(model => model.newProfileContact.countryCode)
+@Html.HiddenFor(model => model.newProfileContact.userId)
+@Html.HiddenFor(model => model.newProfileContact.ownerId)
+@Html.HiddenFor(model => model.newProfileContact.id)
 
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">First Name</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.firstName, new { @class = "form-control" })
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Last Name</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.lastName, new { @class = "form-control" })
-                        </fieldset>
+</div>
+<div class="form-group">
+    <label class="" for="user_email">First Name</label>
+    @Html.TextBoxFor(model => model.newProfileContact.firstName, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    <label class="" for="user_email">Last Name</label>
+    @Html.TextBoxFor(model => model.newProfileContact.lastName, new { @class = "form-control" })
+</div>
 
-                        <fieldset class="form-group">
-                            <label class="" for="user_login">Your Name</label>
-                            @Html.TextBoxFor(model => model.displayName, new { @class = "form-control" })
+<div class="form-group">
+    <label class="" for="user_login">Your Name</label>
+    @Html.TextBoxFor(model => model.displayName, new { @class = "form-control" })
 
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Email</label>
-                            @Html.TextBoxFor(model => model.emailAddress, new { @class = "form-control" })
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Status</label>
-                            @Html.TextBoxFor(model => model.status, new { @class = "form-control" })
-                        </fieldset>
-
-
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Company Name</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.companyName, new { @class = "form-control" })
-                        </fieldset>
-
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Job Title</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.jobTitle, new { @class = "form-control" })
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Gender</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.gender, new { @class = "form-control" })
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Addresss</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.addressLine1, new { @class = "form-control" })
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">City</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.addressCity, new { @class = "form-control" })
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">State</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.addressState, new { @class = "form-control" })
-                        </fieldset>
-                           
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Country</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.addressCountry, new { @class = "form-control" })
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Zip</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.addressZip, new { @class = "form-control" })
-                        </fieldset>
-                        
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Phone</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.phoneNumber, new { @class = "form-control" })
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Birth Date</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.birthDate, new { @class = "form-control" })
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">Education Level</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.educationLevel, new { @class = "form-control" })
-                        </fieldset>
-                        
-                        <fieldset class="form-group">
-                            <label class="" for="user_email">PayPal Email</label>
-                            @Html.TextBoxFor(model => model.newProfileContact.payPalEmail, new { @class = "form-control" })
-                        </fieldset>
+</div>
+<div class="form-group">
+    <label class="" for="user_email">Email</label>
+    @Html.TextBoxFor(model => model.emailAddress, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    <label class="" for="user_email">Status</label>
+    @Html.TextBoxFor(model => model.status, new { @class = "form-control" })
+</div>
 
 
-                        <p class="form-actions">
-                            <input type="submit" id="btnSubmit" class="btn-primary btn btn-large" value="Update" />
+<div class="form-group">
+    <label class="" for="user_email">Company Name</label>
+    @Html.TextBoxFor(model => model.newProfileContact.companyName, new { @class = "form-control" })
+</div>
 
-                        </p>
+<div class="form-group">
+    <label class="" for="user_email">Job Title</label>
+    @Html.TextBoxFor(model => model.newProfileContact.jobTitle, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    <label class="" for="user_email">Gender</label>
+    @Html.TextBoxFor(model => model.newProfileContact.gender, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    <label class="" for="user_email">Addresss</label>
+    @Html.TextBoxFor(model => model.newProfileContact.addressLine1, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    <label class="" for="user_email">City</label>
+    @Html.TextBoxFor(model => model.newProfileContact.addressCity, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    <label class="" for="user_email">State</label>
+    @Html.TextBoxFor(model => model.newProfileContact.addressState, new { @class = "form-control" })
+</div>
 
-                    </fieldset>
-                    }
-                </section>
+<div class="form-group">
+    <label class="" for="user_email">Country</label>
+    @Html.TextBoxFor(model => model.newProfileContact.addressCountry, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    <label class="" for="user_email">Zip</label>
+    @Html.TextBoxFor(model => model.newProfileContact.addressZip, new { @class = "form-control" })
+</div>
 
-            </div>
-        </div>
+<div class="form-group">
+    <label class="" for="user_email">Phone</label>
+    @Html.TextBoxFor(model => model.newProfileContact.phoneNumber, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    <label class="" for="user_email">Birth Date</label>
+    @Html.TextBoxFor(model => model.newProfileContact.birthDate, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    <label class="" for="user_email">Education Level</label>
+    @Html.TextBoxFor(model => model.newProfileContact.educationLevel, new { @class = "form-control" })
+</div>
 
-    </div>
+<div class="form-group">
+    <label class="" for="user_email">PayPal Email</label>
+    @Html.TextBoxFor(model => model.newProfileContact.payPalEmail, new { @class = "form-control" })
+</div>
+
+
+<p class="form-actions">
+    <input type="submit" id="btnSubmit" class="btn-primary btn btn-large" value="Update" />
+
+</p>
+
+</div>
+}
+</section>
+
+</div>
+</div>
+
+</div>
 </section>
