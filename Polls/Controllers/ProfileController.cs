@@ -44,7 +44,7 @@ namespace Polls.Controllers
         /// <param name="profile"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult ViewProfile(Profile profile)
+        public ActionResult ViewProfile(UpdateProfile profile)
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
             var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/UpdateProfile");
@@ -53,7 +53,7 @@ namespace Polls.Controllers
             request.AddHeader("userid", loginRespone.userId);
             request.AddJsonBody(profile);
             request.AddHeader("content-type", "application/json");
-            IRestResponse<Profile> response = client.Execute<Profile>(request);
+            IRestResponse<UpdateProfile> response = client.Execute<UpdateProfile>(request);
 
             if (response.StatusCode.ToString() == "OK")
             {

@@ -40,9 +40,18 @@
                             @Html.HiddenFor(model => model.isPartner)
                             @Html.HiddenFor(model => model.departmentId)
 
-
+                            @Html.HiddenFor(model => model.newProfileContact.countryCode)
 
                         </fieldset>
+                        <fieldset class="form-group">
+                            <label class="" for="user_email">First Name</label>
+                            @Html.TextBoxFor(model => model.newProfileContact.firstName, new { @class = "form-control" })
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label class="" for="user_email">Last Name</label>
+                            @Html.TextBoxFor(model => model.newProfileContact.lastName, new { @class = "form-control" })
+                        </fieldset>
+
                         <fieldset class="form-group">
                             <label class="" for="user_login">Your Name</label>
                             @Html.TextBoxFor(model => model.displayName, new { @class = "form-control" })
@@ -75,7 +84,37 @@
                             <label class="" for="user_email">Addresss</label>
                             @Html.TextBoxFor(model => model.newProfileContact.addressLine1, new { @class = "form-control" })
                         </fieldset>
-
+                        <fieldset class="form-group">
+                            <label class="" for="user_email">City</label>
+                            @Html.TextBoxFor(model => model.newProfileContact.addressCity, new { @class = "form-control" })
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label class="" for="user_email">State</label>
+                            @Html.TextBoxFor(model => model.newProfileContact.addressState, new { @class = "form-control" })
+                        </fieldset>
+                           
+                        <fieldset class="form-group">
+                            <label class="" for="user_email">Country</label>
+                            @Html.TextBoxFor(model => model.newProfileContact.addressCountry, new { @class = "form-control" })
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label class="" for="user_email">Zip</label>
+                            @Html.TextBoxFor(model => model.newProfileContact.addressZip, new { @class = "form-control" })
+                        </fieldset>
+                        
+                        <fieldset class="form-group">
+                            <label class="" for="user_email">Phone</label>
+                            @Html.TextBoxFor(model => model.newProfileContact.phoneNumber, new { @class = "form-control" })
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label class="" for="user_email">Birth Date</label>
+                            @Html.TextBoxFor(model => model.newProfileContact.birthDate, new { @class = "form-control" })
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label class="" for="user_email">Education Level</label>
+                            @Html.TextBoxFor(model => model.newProfileContact.educationLevel, new { @class = "form-control" })
+                        </fieldset>
+                        
                         <fieldset class="form-group">
                             <label class="" for="user_email">PayPal Email</label>
                             @Html.TextBoxFor(model => model.newProfileContact.payPalEmail, new { @class = "form-control" })
