@@ -44,14 +44,14 @@ namespace Polls.Controllers
         /// <param name="profile"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult ViewProfile(UpdateProfile profile)
+        public ActionResult ViewProfile(Profile profile)
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
             var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/UpdateProfile");
             var request = new RestRequest(Method.POST);
             request.AddHeader("token", loginRespone.token);
             request.AddHeader("userid", loginRespone.userId);
-            request.AddJsonBody(profile);
+            request.AddJsonBody(profile.newProfileContact);
             request.AddHeader("content-type", "application/json");
             IRestResponse<UpdateProfile> response = client.Execute<UpdateProfile>(request);
 
