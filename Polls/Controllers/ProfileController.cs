@@ -46,20 +46,22 @@ namespace Polls.Controllers
         [HttpPost]
         public ActionResult ViewProfile(Profile profile)
         {
-            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
-            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/UpdateProfile");
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("token", loginRespone.token);
-            request.AddHeader("userid", loginRespone.userId);
-            request.AddJsonBody(profile.newProfileContact);
-            request.AddHeader("content-type", "application/json");
-            //IRestResponse<UpdateProfile> response = client.Execute<UpdateProfile>(request);
+            if (ModelState.IsValid)
+            {
+                LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
+                var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/UpdateProfile");
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("token", loginRespone.token);
+                request.AddHeader("userid", loginRespone.userId);
+                request.AddJsonBody(profile.newProfileContact);
+                request.AddHeader("content-type", "application/json");
+                IRestResponse<UpdateProfile> response = client.Execute<UpdateProfile>(request);
 
-            //if (response.StatusCode.ToString() == "OK")
-            //{
-
-            //}
-
+                if (response.StatusCode.ToString() == "OK")
+                {
+                    
+                }
+            }
             return View();
         }
     }
