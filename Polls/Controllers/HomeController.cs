@@ -76,6 +76,11 @@ namespace Polls.Controllers
             return View(); // modify as per your need
         }
 
+        public ActionResult GetPollResult(int? pollId)
+        {
+            return View();
+        }
+
 
 
     }

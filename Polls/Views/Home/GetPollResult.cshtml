@@ -1,0 +1,2016 @@
+﻿
+@{
+    ViewBag.Title = "GetPollResult";
+}
+<style>
+    .well-small {
+        border-radius: .15rem;
+        border: 1px solid #e5e5e5;
+        display: inline-block;
+        background: white;
+        padding: .16667rem .25rem;
+        margin-bottom: 1rem;
+        margin-right: .5rem;
+        margin-left: 0;
+    }
+
+    .row, .hero-box {
+        margin-left: -.9375rem;
+        margin-right: -.9375rem;
+    }
+
+
+
+    .card-block, .hero-box {
+        padding: 1.25rem;
+    }
+
+    .card, .hero-box {
+        position: relative;
+        display: block;
+        margin-bottom: .75rem;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: .15rem;
+    }
+
+    .poll-action-row .poll-actions {
+        text-align: right;
+    }
+</style>
+<section class="normal section-list">
+    <br />
+    <section id="public-display-hero" class="hero">
+        <div class="container">
+            <ul class="breadcrumb"><li><a href="/Home/Index">Home</a></li><li><a href="#">Poll Result</a></li></ul>		<div class="row">
+
+            </div>
+        </div>
+    </section>
+    <div class="container">
+
+        <div class="pubdisp">
+            <div class="">
+                <a name="full_results"></a>
+                <div class="pr-header row">
+                    <div class="col-sm-4">
+                        <h2>
+                            Full Poll Results
+                        </h2>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="well well-small pull-right">Published Jul 27, 2017</div>
+                        <div class="well well-small pull-right">Public</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="card card-block ">
+                <div class="question-display">
+                    <h2>
+                        Which book title is more appealing?
+                    </h2>
+
+                </div>
+            </div>
+
+            <div class="row poll-action-row">
+                <div class="col-sm-6">
+                    <p>
+                        <span class="poll-audience" style=""> <i class="fa fa-group fa-fw"></i> <span class="label label-default">50 Respondents</span> <span class="label label-default">General Population</span> </span>
+                    </p>
+                </div>
+                <div class="col-sm-6 poll-actions">
+                    <ul class="list-inline list-links">
+                        <li class="list-inline-item" data-ga-trk-hvr="download">
+                            <a href="http://www.pickfu.com/UV1DUW-which-book-title-is.csv" onclick="ga('send', 'pageview', '/books/book-titles/which-book-title-is-more-appealing-CHKJJ0SY.csv');" rel="noindex nofollow"><i class="fa fa-download"></i> Export (.csv)</a>
+
+
+                        </li>
+                        <li class="list-inline-item">
+                            <!-- AddThis Button BEGIN -->
+                            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=pickfu">
+                                <i class="fa-share fa"></i> Share
+                            </a>
+                            <!-- AddThis Button END -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class=" answers">
+                <div class="row card-columns">
+                    <div class="col-sm-6 card-column">
+                        <div class="card card-block poll-option-card" data-outcome-label="winner">
+                            <div class="option" data-ga-trk-hvr="optionA">
+                                <h5>Option A</h5>
+                                <p>Warrior Wellness: Antidote to Suicide</p>
+                                <div class="clearfix"></div>
+                                <div class="option-bottom">
+                                    <hr>
+                                    <div class="row-wrapper">
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="tally-marks"><div class="tally-full" style=""><span class="tally-group"><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span></span><span class="tally-group"><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span></span><span class="tally-group"><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span></span><span class="tally-group"><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span></span><span class="tally-group"><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span></span><span class="tally-group"><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span></span><span class="tally-group"><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span></span><span class="tally-group"><span class="tally"></span><span class="tally"></span><span class="tally"></span></span></div></div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="pull-right">
+                                                    <div class="label label-default">38 votes</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 card-column">
+                        <div class="card card-block poll-option-card">
+                            <div class="option" data-ga-trk-hvr="optionB">
+                                <h5>Option B</h5>
+                                <p>The Trust About Suicide</p>
+                                <div class="clearfix"></div>
+                                <div class="option-bottom">
+                                    <hr>
+                                    <div class="row-wrapper">
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="tally-marks"><div class="tally-full" style=""><span class="tally-group"><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span></span><span class="tally-group"><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span><span class="tally"></span></span><span class="tally-group"><span class="tally"></span><span class="tally"></span></span></div></div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="pull-right">
+                                                    <div class="label label-default">12 votes</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div> <!-- container -->
+
+
+            <div class="card card-block">
+                <h3 class="card-title">Responses</h3>
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <table class="table table-hover table-bordered table-sm poll-responses" data-ga-trk-hvr="responses-A">
+                            <thead>
+                                <tr class="answer-row">
+                                    <th colspan="100%">Responses to Option A</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="answer-1271281" class="answer-row">
+                                    <td class="answer_num">
+                                        1
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="GENDER: Male<br/> AGE: 35-49<br/> EDUCATION: High School<br/> ETHNICITY: White<br/> INCOME: $30-60k" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271281-explanation">
+                                                I'm not sure what "The Trust About Suicide" means. It's a bit confusing.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271282" class="answer-row">
+                                    <td class="answer_num">
+                                        2
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> ETHNICITY: White<br/> INCOME: $30-60k<br/> AGE: 50-64<br/> GENDER: Female" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271282-explanation">
+                                                Sounds better than trusting suicide.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271283" class="answer-row">
+                                    <td class="answer_num">
+                                        3
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="AGE: 18-34<br/> INCOME: $30-60k<br/> EDUCATION: College<br/> ETHNICITY: White<br/> GENDER: Male" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271283-explanation">
+                                                It sounds more upbeat and helpful.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271284" class="answer-row">
+                                    <td class="answer_num">
+                                        4
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: Grad School<br/> GENDER: Male<br/> AGE: 18-34<br/> ETHNICITY: White<br/> INCOME: $30-60k" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271284-explanation">
+                                                The title sounds more optimistic, like a solution almost.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271286" class="answer-row">
+                                    <td class="answer_num">
+                                        5
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="ETHNICITY: Hispanic<br/> INCOME: $30-60k<br/> EDUCATION: College<br/> AGE: 35-49<br/> GENDER: Male" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271286-explanation">
+                                                i would want an antidote
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271287" class="answer-row">
+                                    <td class="answer_num">
+                                        6
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: High School<br/> ETHNICITY: Black<br/> INCOME: $0-30k<br/> AGE: 35-49<br/> GENDER: Female" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271287-explanation">
+                                                I chose Option A because this title makes the book seem more helpful and informative.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271288" class="answer-row">
+                                    <td class="answer_num">
+                                        7
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="GENDER: Male<br/> AGE: 18-34<br/> ETHNICITY: White<br/> EDUCATION: High School<br/> INCOME: $0-30k" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271288-explanation">
+                                                It sounds better with more personality and a definitive solution.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271290" class="answer-row">
+                                    <td class="answer_num">
+                                        8
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> ETHNICITY: Asian<br/> INCOME: $60-100k<br/> AGE: 35-49<br/> GENDER: Male" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271290-explanation">
+                                                Sounds more compelling.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271294" class="answer-row">
+                                    <td class="answer_num">
+                                        9
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="ETHNICITY: White<br/> GENDER: Male<br/> AGE: 35-49<br/> EDUCATION: High School<br/> INCOME: $0-30k" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271294-explanation">
+                                                The other does not make sense
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271295" class="answer-row">
+                                    <td class="answer_num">
+                                        10
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="GENDER: Male<br/> INCOME: $0-30k<br/> ETHNICITY: Asian<br/> EDUCATION: High School<br/> AGE: 35-49" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271295-explanation">
+                                                It sounds more positive.  And B doesn't make sense.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271297" class="answer-row">
+                                    <td class="answer_num">
+                                        11
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="INCOME: $0-30k<br/> GENDER: Male<br/> AGE: 18-34<br/> ETHNICITY: White<br/> EDUCATION: College" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271297-explanation">
+                                                I understand what A is about but B just makes no sense.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271299" class="answer-row">
+                                    <td class="answer_num">
+                                        12
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> AGE: 18-34<br/> GENDER: Male<br/> ETHNICITY: White<br/> INCOME: $0-30k" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271299-explanation">
+                                                Sounds like an interesting and realistic read.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271300" class="answer-row">
+                                    <td class="answer_num">
+                                        13
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> ETHNICITY: White<br/> INCOME: $60-100k<br/> AGE: 35-49<br/> GENDER: Female" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271300-explanation">
+                                                Option A sounds like an interesting book.  I really don't understand what option B is about.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271305" class="answer-row">
+                                    <td class="answer_num">
+                                        14
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: High School<br/> AGE: 18-34<br/> INCOME: $0-30k<br/> GENDER: Male<br/> ETHNICITY: White" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271305-explanation">
+                                                Sounds more interesting
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271308" class="answer-row">
+                                    <td class="answer_num">
+                                        15
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="INCOME: $60-100k<br/> EDUCATION: College<br/> ETHNICITY: White<br/> AGE: 18-34<br/> GENDER: Male" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271308-explanation">
+                                                It sounds more like it offers more help.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271309" class="answer-row">
+                                    <td class="answer_num">
+                                        16
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="ETHNICITY: White<br/> INCOME: $0-30k<br/> AGE: 50-64<br/> GENDER: Female<br/> EDUCATION: College" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271309-explanation">
+                                                Option A is my choice.  The title sounds more positive for the subject.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271312" class="answer-row">
+                                    <td class="answer_num">
+                                        17
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="AGE: 18-34<br/> ETHNICITY: Hispanic<br/> EDUCATION: College<br/> GENDER: Male<br/> INCOME: $30-60k" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271312-explanation">
+                                                It sounds more helpful and positive for a very negative topic.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271322" class="answer-row">
+                                    <td class="answer_num">
+                                        18
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="GENDER: Female<br/> EDUCATION: College<br/> INCOME: $100k+<br/> ETHNICITY: White<br/> AGE: 50-64" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271322-explanation">
+                                                the other one makes no sense
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271324" class="answer-row">
+                                    <td class="answer_num">
+                                        19
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> ETHNICITY: White<br/> INCOME: $30-60k<br/> AGE: 18-34<br/> GENDER: Male" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271324-explanation">
+                                                The other title, The Trust About Suicide, doesn't make any sense, as far as I can tell.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271326" class="answer-row">
+                                    <td class="answer_num">
+                                        20
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> ETHNICITY: Black<br/> INCOME: $0-30k<br/> AGE: 18-34<br/> GENDER: Female" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271326-explanation">
+                                                It seemed more personal and more helpful than B.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271327" class="answer-row">
+                                    <td class="answer_num">
+                                        21
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> GENDER: Female<br/> AGE: 50-64<br/> ETHNICITY: White<br/> INCOME: $30-60k" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271327-explanation">
+                                                I like A which offers a solution. The other choice is confusing and doesn't make me feel that I will learn anything useful.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271329" class="answer-row">
+                                    <td class="answer_num">
+                                        22
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="INCOME: $0-30k<br/> GENDER: Female<br/> AGE: 18-34<br/> ETHNICITY: White<br/> EDUCATION: College" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271329-explanation">
+                                                I slightly prefer A, because it gives more of an idea what the book is actually about.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271330" class="answer-row">
+                                    <td class="answer_num">
+                                        23
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> ETHNICITY: White<br/> INCOME: $30-60k<br/> AGE: 18-34<br/> GENDER: Male" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271330-explanation">
+                                                Option A sounds much less harsh than option B.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271331" class="answer-row">
+                                    <td class="answer_num">
+                                        24
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: Grad School<br/> ETHNICITY: White<br/> INCOME: $0-30k<br/> AGE: 18-34<br/> GENDER: Female" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271331-explanation">
+                                                B doesn't even seem grammatically correct
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271332" class="answer-row">
+                                    <td class="answer_num">
+                                        25
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="INCOME: $30-60k<br/> EDUCATION: College<br/> AGE: 50-64<br/> GENDER: Male<br/> ETHNICITY: White" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271332-explanation">
+                                                prefer choice A because it is more upbeat sounding and interesting title making one want to know more on this topic then choice B.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271333" class="answer-row">
+                                    <td class="answer_num">
+                                        26
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="GENDER: Male<br/> AGE: 18-34<br/> INCOME: $60-100k<br/> ETHNICITY: Black<br/> EDUCATION: Grad School" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271333-explanation">
+                                                Because it provides the solution to the problem to sucide
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271337" class="answer-row">
+                                    <td class="answer_num">
+                                        27
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="GENDER: Male<br/> AGE: 18-34<br/> ETHNICITY: Hispanic<br/> EDUCATION: College<br/> INCOME: $30-60k" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271337-explanation">
+                                                The title sounds like a powerful answer to a serious problem.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271338" class="answer-row">
+                                    <td class="answer_num">
+                                        28
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="AGE: 35-49<br/> GENDER: Female<br/> INCOME: $30-60k<br/> ETHNICITY: White<br/> EDUCATION: College" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271338-explanation">
+                                                A - because the title in option B doesn't make any sense to me - and an antidote to suicide, if there is such a thing, is very welcome.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271339" class="answer-row">
+                                    <td class="answer_num">
+                                        29
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="AGE: 18-34<br/> GENDER: Male<br/> INCOME: $30-60k<br/> EDUCATION: College<br/> ETHNICITY: White" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271339-explanation">
+                                                This one sounds more interesting.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271341" class="answer-row">
+                                    <td class="answer_num">
+                                        30
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="AGE: 18-34<br/> GENDER: Male<br/> ETHNICITY: White<br/> INCOME: $0-30k<br/> EDUCATION: College" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271341-explanation">
+                                                choice b seems to convey the idea that suicide is acceptable and understandable
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271342" class="answer-row">
+                                    <td class="answer_num">
+                                        31
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="INCOME: $60-100k<br/> AGE: 18-34<br/> GENDER: Male<br/> ETHNICITY: White<br/> EDUCATION: College" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271342-explanation">
+                                                The other does not seem good at all
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271343" class="answer-row">
+                                    <td class="answer_num">
+                                        32
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: Grad School<br/> ETHNICITY: White<br/> INCOME: $30-60k<br/> GENDER: Male<br/> AGE: 35-49" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271343-explanation">
+                                                The title is more comprehensive and draws my curiosity.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271344" class="answer-row">
+                                    <td class="answer_num">
+                                        33
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="ETHNICITY: White<br/> GENDER: Male<br/> INCOME: $60-100k<br/> EDUCATION: Grad School<br/> AGE: 18-34" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271344-explanation">
+                                                I think it sounds a bit less intimidating to attempt
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271345" class="answer-row">
+                                    <td class="answer_num">
+                                        34
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="GENDER: Male<br/> ETHNICITY: White<br/> EDUCATION: College<br/> INCOME: $0-30k<br/> AGE: 35-49" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271345-explanation">
+                                                sounds more thought provocative
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271346" class="answer-row">
+                                    <td class="answer_num">
+                                        35
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: Grad School<br/> GENDER: Male<br/> AGE: 50-64<br/> INCOME: $100k+<br/> ETHNICITY: White" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271346-explanation">
+                                                it is a bit more spe1.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271349" class="answer-row">
+                                    <td class="answer_num">
+                                        36
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="AGE: 35-49<br/> GENDER: Male<br/> INCOME: $100k+<br/> ETHNICITY: White<br/> EDUCATION: College" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271349-explanation">
+                                                trust about suicide doesnt actually make any sense
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271353" class="answer-row">
+                                    <td class="answer_num">
+                                        37
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="AGE: 50-64<br/> EDUCATION: Grad School<br/> ETHNICITY: White<br/> GENDER: Female<br/> INCOME: $60-100k" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271353-explanation">
+                                                A sounds more empowering.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271360" class="answer-row">
+                                    <td class="answer_num">
+                                        38
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="AGE: 18-34<br/> GENDER: Female<br/> INCOME: $0-30k<br/> ETHNICITY: White<br/> EDUCATION: College" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271360-explanation">
+                                                Warrior Wellness has a nice ring to it, maybe because of the alliteration.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>  <!-- span6 -->
+                    <div class="col-sm-6">
+                        <table class="table table-hover table-bordered table-sm poll-responses" data-ga-trk-hvr="responses-B">
+                            <thead>
+                                <tr class="answer-row">
+                                    <th colspan="100%">Responses to Option B</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="answer-1271285" class="answer-row">
+                                    <td class="answer_num">
+                                        1
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="GENDER: Female<br/> ETHNICITY: White<br/> AGE: 35-49<br/> EDUCATION: College<br/> INCOME: $60-100k" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271285-explanation">
+                                                There is no antidote to suicide and to suggest otherwise undermines the pain a person may be going through
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271289" class="answer-row">
+                                    <td class="answer_num">
+                                        2
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="AGE: 18-34<br/> ETHNICITY: White<br/> EDUCATION: College<br/> INCOME: $60-100k<br/> GENDER: Female" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271289-explanation">
+                                                The concept of an "antidote" to suicide sounds offensive.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271296" class="answer-row">
+                                    <td class="answer_num">
+                                        3
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="GENDER: Female<br/> INCOME: $30-60k<br/> ETHNICITY: White<br/> EDUCATION: Grad School<br/> AGE: 35-49" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271296-explanation">
+                                                A feels preachy and easy to pass-by. However, B instantly has drawn my own curiosity.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271306" class="answer-row">
+                                    <td class="answer_num">
+                                        4
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> AGE: 50-64<br/> GENDER: Male<br/> INCOME: $60-100k<br/> ETHNICITY: Hispanic" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271306-explanation">
+                                                B -the somberness of the topic comes thru better
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271307" class="answer-row">
+                                    <td class="answer_num">
+                                        5
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="AGE: 18-34<br/> GENDER: Male<br/> INCOME: $0-30k<br/> ETHNICITY: White<br/> EDUCATION: High School" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271307-explanation">
+                                                It builds a more intriguing curiosity the the title.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271310" class="answer-row">
+                                    <td class="answer_num">
+                                        6
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="INCOME: $100k+<br/> AGE: 35-49<br/> ETHNICITY: White<br/> EDUCATION: College<br/> GENDER: Female" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271310-explanation">
+                                                I like the name better. Antidote seems a little off.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271311" class="answer-row">
+                                    <td class="answer_num">
+                                        7
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> INCOME: $0-30k<br/> GENDER: Male<br/> AGE: 18-34<br/> ETHNICITY: White" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271311-explanation">
+                                                Other one is too flowery.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271313" class="answer-row">
+                                    <td class="answer_num">
+                                        8
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> ETHNICITY: White<br/> INCOME: $30-60k<br/> AGE: 35-49<br/> GENDER: Female" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271313-explanation">
+                                                This one is straight forward. The other one almost seems to only be aimed at certain people.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271323" class="answer-row">
+                                    <td class="answer_num">
+                                        9
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="INCOME: $60-100k<br/> EDUCATION: Grad School<br/> ETHNICITY: White<br/> AGE: 35-49<br/> GENDER: Female" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271323-explanation">
+                                                A is just a real turnoff to me. I would be more intrigued by B.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271325" class="answer-row">
+                                    <td class="answer_num">
+                                        10
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="EDUCATION: College<br/> ETHNICITY: White<br/> AGE: 35-49<br/> GENDER: Female<br/> INCOME: $30-60k" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271325-explanation">
+                                                Trust about suicide is more appealing.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271348" class="answer-row">
+                                    <td class="answer_num">
+                                        11
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="AGE: 18-34<br/> GENDER: Female<br/> ETHNICITY: Hispanic<br/> INCOME: $30-60k<br/> EDUCATION: College" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271348-explanation">
+                                                its a more straight forward book title
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr id="answer-1271355" class="answer-row">
+                                    <td class="answer_num">
+                                        12
+                                    </td>
+
+                                    <td>
+                                        <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                            follow-up  upvote  downvote
+                                        </div> -->
+                                        <div class="answer-actions">
+                                        </div>
+                                        <div class="answer-content" data-title="INCOME: $30-60k<br/> AGE: 18-34<br/> EDUCATION: College<br/> ETHNICITY: White<br/> GENDER: Male" data-html="true" rel="tooltip" data-original-title="" title="">
+                                            <div class="answer-explanation" id="1271355-explanation">
+                                                Title B invokes shocking and confusing images and that is enough to draw my attention in to the title.
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>  <!-- span6 -->
+                </div> <!-- row-fluid -->
+            </div> <!-- container border-box -->
+
+
+            <div class="card card-block" data-ga-trk-hvr="demographics">
+                <h3 class="card-title">Demographics</h3>
+                <div class="text-xs-center">
+                    <ul id="demo-tabs" class="nav nav-pills">
+                        <li class="nav-item"><a href="#demo-all" data-toggle="tab" class="nav-link chart-refresh active" aria-expanded="true">All Responses</a></li>
+                        <li class="nav-item">
+                            <a href="#demo-ab" data-toggle="tab" class="nav-link chart-refresh" aria-expanded="false">
+                                Option A vs. Option B
+                            </a>
+                        </li>
+                        <li class="nav-item"><a href="#demo-segment" data-toggle="tab" class="nav-link" aria-expanded="false">Votes By Group</a></li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div id="demo-all" class="tab-pane active" row-fluid="" aria-expanded="true">
+                        <!-- <div class='row'>
+                                <div class="col-sm-12">
+                                        <h4>
+                                            All Responses
+                                        </h4>
+                                </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h5 class="text-xs-center">
+                                    Gender
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        Male (0%)
+                                    </h6>
+
+                                    <div id="gpie-0" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>Male (0%)</td><td>0</td></tr>
+                                                <tr><td>Female (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h5 class="text-xs-center">
+                                    Age
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        3-17 (0%)
+                                    </h6>
+
+                                    <div id="gpie-1" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>3-17 (0%)</td><td>0</td></tr>
+                                                <tr><td>18-34 (0%)</td><td>0</td></tr>
+                                                <tr><td>35-49 (0%)</td><td>0</td></tr>
+                                                <tr><td>50-64 (0%)</td><td>0</td></tr>
+                                                <tr><td>65+ (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h5 class="text-xs-center">
+                                    Income
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        $0-30k (0%)
+                                    </h6>
+
+                                    <div id="gpie-2" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>$0-30k (0%)</td><td>0</td></tr>
+                                                <tr><td>$30-60k (0%)</td><td>0</td></tr>
+                                                <tr><td>$60-100k (0%)</td><td>0</td></tr>
+                                                <tr><td>$100k+ (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h5 class="text-xs-center">
+                                    Ethnicity
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        White (0%)
+                                    </h6>
+
+                                    <div id="gpie-3" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>White (0%)</td><td>0</td></tr>
+                                                <tr><td>Black (0%)</td><td>0</td></tr>
+                                                <tr><td>Asian (0%)</td><td>0</td></tr>
+                                                <tr><td>Hispanic (0%)</td><td>0</td></tr>
+                                                <tr><td>Other (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h5 class="text-xs-center">
+                                    Education
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        High School (0%)
+                                    </h6>
+
+                                    <div id="gpie-4" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>High School (0%)</td><td>0</td></tr>
+                                                <tr><td>College (0%)</td><td>0</td></tr>
+                                                <tr><td>Grad School (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="demo-ab" class="tab-pane" row-fluid="" aria-expanded="false">
+                        <!-- <div class='row'>
+                                <div class="col-sm-6">
+                                        <h4>
+                                            A
+                                        </h4>
+                                </div>
+                                <div class="col-sm-6">
+                                        <h4>
+                                            B
+                                        </h4>
+                                </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="text-xs-center">
+                                    Gender for Option A
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        Male (0%)
+                                    </h6>
+
+                                    <div id="gpie-5" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>Male (0%)</td><td>0</td></tr>
+                                                <tr><td>Female (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="text-xs-center">
+                                    Gender for Option B
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        Male (0%)
+                                    </h6>
+
+                                    <div id="gpie-6" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>Male (0%)</td><td>0</td></tr>
+                                                <tr><td>Female (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="text-xs-center">
+                                    Age for Option A
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        3-17 (0%)
+                                    </h6>
+
+                                    <div id="gpie-7" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>3-17 (0%)</td><td>0</td></tr>
+                                                <tr><td>18-34 (0%)</td><td>0</td></tr>
+                                                <tr><td>35-49 (0%)</td><td>0</td></tr>
+                                                <tr><td>50-64 (0%)</td><td>0</td></tr>
+                                                <tr><td>65+ (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="text-xs-center">
+                                    Age for Option B
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        3-17 (0%)
+                                    </h6>
+
+                                    <div id="gpie-8" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>3-17 (0%)</td><td>0</td></tr>
+                                                <tr><td>18-34 (0%)</td><td>0</td></tr>
+                                                <tr><td>35-49 (0%)</td><td>0</td></tr>
+                                                <tr><td>50-64 (0%)</td><td>0</td></tr>
+                                                <tr><td>65+ (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="text-xs-center">
+                                    Income for Option A
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        $0-30k (0%)
+                                    </h6>
+
+                                    <div id="gpie-9" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>$0-30k (0%)</td><td>0</td></tr>
+                                                <tr><td>$30-60k (0%)</td><td>0</td></tr>
+                                                <tr><td>$60-100k (0%)</td><td>0</td></tr>
+                                                <tr><td>$100k+ (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="text-xs-center">
+                                    Income for Option B
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        $0-30k (0%)
+                                    </h6>
+
+                                    <div id="gpie-10" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>$0-30k (0%)</td><td>0</td></tr>
+                                                <tr><td>$30-60k (0%)</td><td>0</td></tr>
+                                                <tr><td>$60-100k (0%)</td><td>0</td></tr>
+                                                <tr><td>$100k+ (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="text-xs-center">
+                                    Ethnicity for Option A
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        White (0%)
+                                    </h6>
+
+                                    <div id="gpie-11" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>White (0%)</td><td>0</td></tr>
+                                                <tr><td>Black (0%)</td><td>0</td></tr>
+                                                <tr><td>Asian (0%)</td><td>0</td></tr>
+                                                <tr><td>Hispanic (0%)</td><td>0</td></tr>
+                                                <tr><td>Other (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="text-xs-center">
+                                    Ethnicity for Option B
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        White (0%)
+                                    </h6>
+
+                                    <div id="gpie-12" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>White (0%)</td><td>0</td></tr>
+                                                <tr><td>Black (0%)</td><td>0</td></tr>
+                                                <tr><td>Asian (0%)</td><td>0</td></tr>
+                                                <tr><td>Hispanic (0%)</td><td>0</td></tr>
+                                                <tr><td>Other (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="text-xs-center">
+                                    Education for Option A
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        High School (0%)
+                                    </h6>
+
+                                    <div id="gpie-13" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>High School (0%)</td><td>0</td></tr>
+                                                <tr><td>College (0%)</td><td>0</td></tr>
+                                                <tr><td>Grad School (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="text-xs-center">
+                                    Education for Option B
+                                </h5>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        High School (0%)
+                                    </h6>
+
+                                    <div id="gpie-14" class="gpie  " style="width: 100%;   " data-chart-options="[]">
+                                        <div class="text-xs-center missing-chart alert alert-danger">Charts weren't able to load. Is Adblock on? </div>
+                                        <table class="table pie" style="display: table;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th data-data-type="string">Trait</th>
+                                                    <th data-data-type="number">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>High School (0%)</td><td>0</td></tr>
+                                                <tr><td>College (0%)</td><td>0</td></tr>
+                                                <tr><td>Grad School (0%)</td><td>0</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="demo-segment" class="tab-pane" row-fluid="" aria-expanded="false">
+                        <div class="row">
+                            <div class="col-xs-2 col-sm-1">
+                                <h4>
+                                    A
+                                </h4>
+                            </div>
+                            <div class="col-xs-8 col-sm-10">
+                                <h4><center>Votes by demographic segment</center></h4>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h4>
+                                    B
+                                </h4>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <h5>Gender</h5>
+                        <div style="font-size:1.23em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:35px; line-height:35px; font-weight:bold; font-size:1.2em;">86%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:35px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:35px;">
+                                    <div class="bar bar-info" style="width:86%;;"></div>
+                                    <div class="bar bar-danger" style="width:14%;"></div>
+                                    <h6 class="" style="height:35px; margin:0; position: absolute; top: 0px; line-height: 35px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:1.23em;">Male&nbsp;(30)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:35px; line-height:35px; ">13%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:1.07em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:30px; line-height:30px; font-weight:bold; font-size:1.2em;">60%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:30px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:30px;">
+                                    <div class="bar bar-info" style="width:60%;;"></div>
+                                    <div class="bar bar-danger" style="width:40%;"></div>
+                                    <h6 class="" style="height:30px; margin:0; position: absolute; top: 0px; line-height: 30px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:1.07em;">Female&nbsp;(20)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:30px; line-height:30px; ">40%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <hr>
+                        <h5>Age</h5>
+                        <div style="font-size:0.8em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:20px; line-height:20px; font-weight:bold; font-size:1.2em;">-</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:20px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:20px;">
+                                    <h6 class="" style="height:20px;color:#404040; margin:0; position: absolute; top: 0px; line-height: 20px; z-index: 2;color: inherit;text-align: center;width: 100%; font-size:0.8em;">3-17&nbsp;(None)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:20px; line-height:20px; font-weight:bold; font-size: 1.2em;">-</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:1.15em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:32px; line-height:32px; font-weight:bold; font-size:1.2em;">80%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:32px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:32px;">
+                                    <div class="bar bar-info" style="width:80%;;"></div>
+                                    <div class="bar bar-danger" style="width:20%;"></div>
+                                    <h6 class="" style="height:32px; margin:0; position: absolute; top: 0px; line-height: 32px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:1.15em;">18-34&nbsp;(25)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:32px; line-height:32px; ">20%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:1.022em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:28px; line-height:28px; font-weight:bold; font-size:1.2em;">64%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:28px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:28px;">
+                                    <div class="bar bar-info" style="width:64%;;"></div>
+                                    <div class="bar bar-danger" style="width:36%;"></div>
+                                    <h6 class="" style="height:28px; margin:0; position: absolute; top: 0px; line-height: 28px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:1.022em;">35-49&nbsp;(17)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:28px; line-height:28px; ">35%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:0.878em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:24px; line-height:24px; font-weight:bold; font-size:1.2em;">87%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:24px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:24px;">
+                                    <div class="bar bar-info" style="width:87%;;"></div>
+                                    <div class="bar bar-danger" style="width:13%;"></div>
+                                    <h6 class="" style="height:24px; margin:0; position: absolute; top: 0px; line-height: 24px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:0.878em;">50-64&nbsp;(8)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:24px; line-height:24px; ">12%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:0.8em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:20px; line-height:20px; font-weight:bold; font-size:1.2em;">-</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:20px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:20px;">
+                                    <h6 class="" style="height:20px;color:#404040; margin:0; position: absolute; top: 0px; line-height: 20px; z-index: 2;color: inherit;text-align: center;width: 100%; font-size:0.8em;">65+&nbsp;(None)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:20px; line-height:20px; font-weight:bold; font-size: 1.2em;">-</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <hr>
+                        <h5>Income</h5>
+                        <div style="font-size:1.006em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:28px; line-height:28px; font-weight:bold; font-size:1.2em;">87%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:28px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:28px;">
+                                    <div class="bar bar-info" style="width:87%;;"></div>
+                                    <div class="bar bar-danger" style="width:13%;"></div>
+                                    <h6 class="" style="height:28px; margin:0; position: absolute; top: 0px; line-height: 28px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:1.006em;">$0-30k&nbsp;(16)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:28px; line-height:28px; ">12%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:1.054em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:29px; line-height:29px; font-weight:bold; font-size:1.2em;">73%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:29px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:29px;">
+                                    <div class="bar bar-info" style="width:73%;;"></div>
+                                    <div class="bar bar-danger" style="width:27%;"></div>
+                                    <h6 class="" style="height:29px; margin:0; position: absolute; top: 0px; line-height: 29px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:1.054em;">$30-60k&nbsp;(19)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:29px; line-height:29px; ">26%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:0.926em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:25px; line-height:25px; font-weight:bold; font-size:1.2em;">63%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:25px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:25px;">
+                                    <div class="bar bar-info" style="width:63%;;"></div>
+                                    <div class="bar bar-danger" style="width:37%;"></div>
+                                    <h6 class="" style="height:25px; margin:0; position: absolute; top: 0px; line-height: 25px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:0.926em;">$60-100k&nbsp;(11)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:25px; line-height:25px; ">36%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:0.8140000000000001em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:22px; line-height:22px; font-weight:bold; font-size:1.2em;">75%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:22px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:22px;">
+                                    <div class="bar bar-info" style="width:75%;;"></div>
+                                    <div class="bar bar-danger" style="width:25%;"></div>
+                                    <h6 class="" style="height:22px; margin:0; position: absolute; top: 0px; line-height: 22px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:0.8140000000000001em;">$100k+&nbsp;(4)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:22px; line-height:22px; ">25%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <hr>
+                        <h5>Ethnicity</h5>
+                        <div style="font-size:1.3900000000000001em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:40px; line-height:40px; font-weight:bold; font-size:1.2em;">75%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:40px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:40px;">
+                                    <div class="bar bar-info" style="width:75%;;"></div>
+                                    <div class="bar bar-danger" style="width:25%;"></div>
+                                    <h6 class="" style="height:40px; margin:0; position: absolute; top: 0px; line-height: 40px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:1.3900000000000001em;">White&nbsp;(40)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:40px; line-height:40px; ">25%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:0.798em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:21px; line-height:21px; font-weight:bold; font-size:1.2em;">100%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:21px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:21px;">
+                                    <div class="bar bar-info" style="width:100%;;"></div>
+                                    <div class="bar bar-danger" style="width:0%;"></div>
+                                    <h6 class="" style="height:21px; margin:0; position: absolute; top: 0px; line-height: 21px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:0.798em;">Black&nbsp;(3)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:21px; line-height:21px; ">0%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:0.782em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:21px; line-height:21px; font-weight:bold; font-size:1.2em;">100%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:21px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:21px;">
+                                    <div class="bar bar-info" style="width:100%;;"></div>
+                                    <div class="bar bar-danger" style="width:0%;"></div>
+                                    <h6 class="" style="height:21px; margin:0; position: absolute; top: 0px; line-height: 21px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:0.782em;">Asian&nbsp;(2)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:21px; line-height:21px; ">0%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:0.8300000000000001em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:22px; line-height:22px; font-weight:bold; font-size:1.2em;">60%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:22px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:22px;">
+                                    <div class="bar bar-info" style="width:60%;;"></div>
+                                    <div class="bar bar-danger" style="width:40%;"></div>
+                                    <h6 class="" style="height:22px; margin:0; position: absolute; top: 0px; line-height: 22px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:0.8300000000000001em;">Hispanic&nbsp;(5)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:22px; line-height:22px; ">40%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:0.8em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:20px; line-height:20px; font-weight:bold; font-size:1.2em;">-</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:20px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:20px;">
+                                    <h6 class="" style="height:20px;color:#404040; margin:0; position: absolute; top: 0px; line-height: 20px; z-index: 2;color: inherit;text-align: center;width: 100%; font-size:0.8em;">Other&nbsp;(None)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:20px; line-height:20px; font-weight:bold; font-size: 1.2em;">-</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <hr>
+                        <h5>Education</h5>
+                        <div style="font-size:0.862em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:23px; line-height:23px; font-weight:bold; font-size:1.2em;">85%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:23px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:23px;">
+                                    <div class="bar bar-info" style="width:85%;;"></div>
+                                    <div class="bar bar-danger" style="width:15%;"></div>
+                                    <h6 class="" style="height:23px; margin:0; position: absolute; top: 0px; line-height: 23px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:0.862em;">High School&nbsp;(7)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:23px; line-height:23px; ">14%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:1.294em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:37px; line-height:37px; font-weight:bold; font-size:1.2em;">73%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:37px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:37px;">
+                                    <div class="bar bar-info" style="width:73%;;"></div>
+                                    <div class="bar bar-danger" style="width:27%;"></div>
+                                    <h6 class="" style="height:37px; margin:0; position: absolute; top: 0px; line-height: 37px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:1.294em;">College&nbsp;(34)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:37px; line-height:37px; ">26%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="font-size:0.894em;" class="row demo-bar">
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:24px; line-height:24px; font-weight:bold; font-size:1.2em;">77%</h6>
+                            </div>
+                            <div class="col-xs-8 col-sm-10" style="height:24px;">
+                                <div class="progress-bar-wrapper progress-bar-wrapper-flat" style="height:24px;">
+                                    <div class="bar bar-info" style="width:77%;;"></div>
+                                    <div class="bar bar-danger" style="width:23%;"></div>
+                                    <h6 class="" style="height:24px; margin:0; position: absolute; top: 0px; line-height: 24px; z-index: 2;color: #fff;text-align: center;width: 100%; font-size:0.894em;">Grad School&nbsp;(9)</h6>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-1">
+                                <h6 style="height:24px; line-height:24px; ">22%</h6>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <script>
+                var hlt_rows_active_id = null;
+                function toggle_hlt_rows(ids, src_elt) {
+                    // disable hlt_rows_active
+                    // console.log(src_elt);
+                    $('.' + 'freq-selected').removeClass('freq-selected');
+
+                    $(src_elt).parent().addClass('freq-selected');
+                    if (hlt_rows_active_id != null) {
+                        $('#' + hlt_rows_active_id).removeClass('highlight-row');
+                    }
+                    // enable hlt_rows_active
+                    hlt_rows_active_id = src_elt.id;
+                    $('#' + hlt_rows_active_id).addClass('highlight-row');
+
+                    // toggle the rows
+                    hlt_rows(ids);
+                }
+                function hlt_rows(ids) {
+                    $('.answer-row').removeClass('highlight-row');
+                    for (var idx in ids) {
+                        // console.log('#answer-' + ids[idx]);
+                        $('#answer-' + ids[idx]).addClass('highlight-row');
+                    };
+                };
+            </script>
+
+
+            <style>
+                .qtable td p {
+                    font-size: 1.2em;
+                    line-height: 1.5em;
+                }
+            </style>
+        </div>
+
+    </div>
+</section>
