@@ -26,10 +26,16 @@
                 <li>
                     @if (Session["UserDetails"] != null)
                     {
-                        <a href="@Url.Action("LogOff","Login")">
-                            Log off
-                            <span class="glyphicon glyphicon-log-out"></span>
-                        </a>
+                        <div class="dropdown" style="padding-top: 7px;">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="glyphicon glyphicon-user"></span>&nbsp;@Session["username"]
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="@Url.Action("ViewProfile","Profile")">Profile</a></li>
+                                <li><a href="@Url.Action("LogOff","Login")">Log Out <span class="glyphicon glyphicon-log-out"></span></a></li>
+                            </ul>
+                        </div>
                     }
                 </li>
             </ul>
@@ -42,6 +48,5 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
 </body>
 </html>

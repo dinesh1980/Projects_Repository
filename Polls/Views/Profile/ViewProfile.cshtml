@@ -52,22 +52,29 @@
 </style>
 
 <section class="normal section-list">
+    <br />
+    <section id="public-display-hero" class="hero">
+        <div class="container">
+            <ul class="breadcrumb"><li><a href="/Home/Index">Home</a></li><li><a href="#">Profile</a></li></ul>		<div class="row">
 
+            </div>
+        </div>
+    </section>
     <div class="container">
 
         <div class="row narrow-wrapper">
             <div class="col-sm-8 col-sm-offset-2">
 
                 <section class="card card-block">
-                    <h1 class="card-title">View Profile Settings</h1>
+                    <h1 class="card-title">View Profile Settings</h1><br />
                     @using (@Html.BeginForm("ViewProfile", "Profile", FormMethod.Post, new { @class = "form-horizontal" }))
                     {
                         <div style="margin:0;padding:0;display:inline"></div>
 
 
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">First Name</label>
-                            <div class="col-md-10 inputGroupContainer">
+                            <label class="col-md-4 control-label" for="user_email">First Name</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
 
                                     @Html.TextBoxFor(model => model.newProfileContact.firstName, new { @class = "form-control" })
@@ -76,13 +83,17 @@
                                     @Html.HiddenFor(model => model.newProfileContact.userId)
                                     @Html.HiddenFor(model => model.newProfileContact.ownerId)
                                     @Html.HiddenFor(model => model.newProfileContact.id)
+                                    @Html.HiddenFor(model => model.newProfileContact.gender)
+                                    @Html.HiddenFor(model => model.newProfileContact.educationLevel)
+                                    @Html.HiddenFor(model => model.newProfileContact.jobTitle)
+                                    @Html.HiddenFor(model => model.newProfileContact.companyName)
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
 
-                            <label class="col-md-2 control-label" for="user_email">Last Name</label>
-                            <div class="col-md-10 inputGroupContainer">
+                            <label class="col-md-4 control-label" for="user_email">Last Name</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
 
                                     @Html.TextBoxFor(model => model.newProfileContact.lastName, new { @class = "form-control" })
@@ -92,50 +103,50 @@
                         </div>
 
 
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">Company Name</label>
-                            <div class="col-md-10 inputGroupContainer">
+                        @*<div class="form-group">
+                            <label class="col-md-4 control-label" for="user_email">Company Name</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
 
                                     @Html.TextBoxFor(model => model.newProfileContact.companyName, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.companyName)
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
 
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">Job Title</label>
-                            <div class="col-md-10 inputGroupContainer">
+                        @*<div class="form-group">
+                            <label class="col-md-4 control-label" for="user_email">Job Title</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
 
                                     @Html.TextBoxFor(model => model.newProfileContact.jobTitle, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.jobTitle)
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">Gender</label>
-                            <div class="col-md-10 inputGroupContainer">
+                        </div>*@
+                        @*<div class="form-group">
+                            <label class="col-md-4 control-label" for="user_email">Gender</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
 
                                     @Html.TextBoxFor(model => model.newProfileContact.gender, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.gender)
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">Addresss</label>
-                            <div class="col-md-10 inputGroupContainer">
+                            <label class="col-md-4 control-label" for="user_email">Addresss</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
 
-                                    @Html.TextBoxFor(model => model.newProfileContact.addressLine1, new { @class = "form-control" })
+                                    @Html.TextAreaFor(model => model.newProfileContact.addressLine1, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.addressLine1)
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">City</label>
-                            <div class="col-md-10 inputGroupContainer">
+                            <label class="col-md-4 control-label" for="user_email">City</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
                                     @Html.TextBoxFor(model => model.newProfileContact.addressCity, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.addressCity)
@@ -143,8 +154,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">State</label>
-                            <div class="col-md-10 inputGroupContainer">
+                            <label class="col-md-4 control-label" for="user_email">State</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
                                     @Html.TextBoxFor(model => model.newProfileContact.addressState, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.addressState)
@@ -153,8 +164,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">Country</label>
-                            <div class="col-md-10 inputGroupContainer">
+                            <label class="col-md-4 control-label" for="user_email">Country</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
                                     @Html.TextBoxFor(model => model.newProfileContact.addressCountry, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.addressCountry)
@@ -162,8 +173,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">Zip</label>
-                            <div class="col-md-10 inputGroupContainer">
+                            <label class="col-md-4 control-label" for="user_email">Zip</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
                                     @Html.TextBoxFor(model => model.newProfileContact.addressZip, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.addressZip)
@@ -172,8 +183,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">Phone</label>
-                            <div class="col-md-10 inputGroupContainer">
+                            <label class="col-md-4 control-label" for="user_email">Phone</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
                                     @Html.TextBoxFor(model => model.newProfileContact.phoneNumber, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.phoneNumber)
@@ -181,8 +192,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">Birth Date</label>
-                            <div class="col-md-10 inputGroupContainer">
+                            <label class="col-md-4 control-label" for="user_email">Birth Date</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class='input-group date' id='datetimepicker1'>
                                     @Html.TextBoxFor(model => model.newProfileContact.birthDate, new { @class = "form-control" })
                                     <span class="input-group-addon">
@@ -195,33 +206,35 @@
 
 
 
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">Education Level</label>
-                            <div class="col-md-10 inputGroupContainer">
+                        @*<div class="form-group">
+                            <label class="col-md-4 control-label" for="user_email">Education Level</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
                                     @Html.TextBoxFor(model => model.newProfileContact.educationLevel, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.educationLevel)
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
 
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="user_email">PayPal Email</label>
-                            <div class="col-md-10 inputGroupContainer">
+                            <label class="col-md-4 control-label" for="user_email">PayPal Email</label>
+                            <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
                                     @Html.TextBoxFor(model => model.newProfileContact.payPalEmail, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.payPalEmail)
                                 </div>
                             </div>
                         </div>
-                                @Html.ValidationSummary(true)
-
-                                <p class="form-actions">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="user_email"></label>
+                            <div class="col-md-8 inputGroupContainer">
+                                <div class="input-group">
                                     <input type="submit" id="btnSubmit" class="btn-primary btn btn-large" value="Update" />
+                                </div>
+                            </div>
+                        </div>
 
-                                </p>
-
-
+                      
                     }
                 </section>
 
@@ -236,3 +249,6 @@
         });
     </script>
 </section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -49,7 +49,7 @@ namespace Polls.Controllers
             if (response.StatusCode.ToString() == "OK" && response.Data.userId != null)
             {
                 Session["UserDetails"] = response.Data;
-
+                Session["username"] = response.Data.displayName;
                 LoggedInUserDetails.Username = response.Data.displayName;
                 return RedirectToAction("Index", "Home");
             }
