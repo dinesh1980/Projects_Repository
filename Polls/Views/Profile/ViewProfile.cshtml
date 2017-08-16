@@ -49,6 +49,9 @@
     .input-group-addon, .input-group-btn {
     width:0% ;
     }
+    th {
+    text-align: center;
+}
 </style>
 
 <section class="normal section-list">
@@ -194,7 +197,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="user_email">Birth Date</label>
                             <div class="col-md-8 inputGroupContainer">
-                                <div class='input-group date' id='datetimepicker1'>
+                                <div class='input-group date' id='datetimepicker111'>
                                     @Html.TextBoxFor(model => model.newProfileContact.birthDate, new { @class = "form-control" })
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
@@ -242,13 +245,14 @@
         </div>
 
     </div>
-    <script src="~/Scripts/bootstrap-datetimepicker.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker1').datetimepicker();
-        });
-    </script>
+   
 </section>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript">
+        $(function () {
+            $('#datetimepicker111').datetimepicker();
+        });
+</script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
