@@ -76,12 +76,39 @@ namespace Polls.Controllers
             return View(); // modify as per your need
         }
 
-        public ActionResult GetPollResult(int? pollId)
+        public ActionResult GetPollResult(string pollId)
         {
-            return View();
+            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
+            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetPollResult");
+            GetPollRequest requestbody = new GetPollRequest();
+            requestbody.viewAll = true;
+            requestbody.pollId = 1187;// Convert.ToInt32(pollid);
+
+
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("content-type", "application/json");
+            request.AddHeader("userid", loginRespone.userId);
+            request.AddHeader("token", loginRespone.token);
+            request.AddJsonBody(requestbody);
+
+            IRestResponse<List<PollResult>> response = client.Execute<List<PollResult>>(request);
+           
+           if (response.StatusCode.ToString() == "OK" && response.Data != null)
+            {
+
+                return View(response.Data); // modify as per your need
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid Username/Password !!");
+            }
+            return View(); // modify as per your need
         }
 
+    }
 
-
+    public class getMyPolRequest
+    {
+        public int pollId { get; set; }
     }
 }
