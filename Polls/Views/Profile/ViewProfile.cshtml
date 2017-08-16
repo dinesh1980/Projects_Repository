@@ -3,7 +3,7 @@
     ViewBag.Title = "View Profile";
 }
 
-<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet" />
 <style>
     section.section-list {
         padding-bottom: 2rem;
@@ -250,7 +250,9 @@
 <script src="~/Scripts/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript">
         $(function () {
-            $('#datetimepicker111').datetimepicker();
+            $('#datetimepicker111').datetimepicker({
+                format: "dd MM yyyy", pickTime: false,
+            });
         });
 </script>
 @section Scripts {
