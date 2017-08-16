@@ -3,7 +3,6 @@
     ViewBag.Title = "View Profile";
 }
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet" />
 <style>
     section.section-list {
         padding-bottom: 2rem;
@@ -46,14 +45,60 @@
     .field-validation-error {
         color: red;
     }
+
     .input-group-addon, .input-group-btn {
-    width:0% ;
+        width: 0%;
     }
-    th {
-    text-align: center;
-}
 </style>
 
+<script type="text/javascript">
+    $(function () {
+        var bindDatePicker = function () {
+            $(".date").datetimepicker({
+                format: 'YYYY-MM-DD',
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                }
+            }).find('input:first').on("blur", function () {
+                // check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+                // update the format if it's yyyy-mm-dd
+                var date = parseDate($(this).val());
+
+                if (!isValidDate(date)) {
+                    //create date based on momentjs (we have that)
+                    date = moment().format('YYYY-MM-DD');
+                }
+
+                $(this).val(date);
+            });
+        }
+
+        var isValidDate = function (value, format) {
+            format = format || false;
+            // lets parse the date to the best of our knowledge
+            if (format) {
+                value = parseDate(value);
+            }
+
+            var timestamp = Date.parse(value);
+
+            return isNaN(timestamp) == false;
+        }
+
+        var parseDate = function (value) {
+            var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+            if (m)
+                value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+
+            return value;
+        }
+
+        bindDatePicker();
+    });
+</script>
 <section class="normal section-list">
     <br />
     <section id="public-display-hero" class="hero">
@@ -107,36 +152,36 @@
 
 
                         @*<div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">Company Name</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
+                                <label class="col-md-4 control-label" for="user_email">Company Name</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
 
-                                    @Html.TextBoxFor(model => model.newProfileContact.companyName, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.companyName)
+                                        @Html.TextBoxFor(model => model.newProfileContact.companyName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.newProfileContact.companyName)
+                                    </div>
                                 </div>
-                            </div>
-                        </div>*@
+                            </div>*@
 
                         @*<div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">Job Title</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
+                                <label class="col-md-4 control-label" for="user_email">Job Title</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
 
-                                    @Html.TextBoxFor(model => model.newProfileContact.jobTitle, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.jobTitle)
+                                        @Html.TextBoxFor(model => model.newProfileContact.jobTitle, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.newProfileContact.jobTitle)
+                                    </div>
                                 </div>
-                            </div>
-                        </div>*@
+                            </div>*@
                         @*<div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">Gender</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
+                                <label class="col-md-4 control-label" for="user_email">Gender</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
 
-                                    @Html.TextBoxFor(model => model.newProfileContact.gender, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.gender)
+                                        @Html.TextBoxFor(model => model.newProfileContact.gender, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.newProfileContact.gender)
+                                    </div>
                                 </div>
-                            </div>
-                        </div>*@
+                            </div>*@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="user_email">Addresss</label>
                             <div class="col-md-8 inputGroupContainer">
@@ -210,14 +255,14 @@
 
 
                         @*<div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">Education Level</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-                                    @Html.TextBoxFor(model => model.newProfileContact.educationLevel, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.educationLevel)
+                                <label class="col-md-4 control-label" for="user_email">Education Level</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(model => model.newProfileContact.educationLevel, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.newProfileContact.educationLevel)
+                                    </div>
                                 </div>
-                            </div>
-                        </div>*@
+                            </div>*@
 
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="user_email">PayPal Email</label>
@@ -237,7 +282,7 @@
                             </div>
                         </div>
 
-                      
+
                     }
                 </section>
 
@@ -245,16 +290,9 @@
         </div>
 
     </div>
-   
+
 </section>
-<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
-<script type="text/javascript">
-        $(function () {
-            $('#datetimepicker111').datetimepicker({
-                format: "dd MM yyyy", pickTime: false,
-            });
-        });
-</script>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
