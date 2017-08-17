@@ -78,11 +78,15 @@ namespace Polls.Controllers
 
         public ActionResult GetPollResult(string pollId)
         {
+            if (pollId == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
             var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetPollResult");
             GetPollRequest requestbody = new GetPollRequest();
             requestbody.viewAll = true;
-            requestbody.pollId = 1187;// Convert.ToInt32(pollid);
+            requestbody.pollId =  Convert.ToInt32(pollId);
 
 
             var request = new RestRequest(Method.POST);
@@ -92,11 +96,15 @@ namespace Polls.Controllers
             request.AddJsonBody(requestbody);
 
             IRestResponse<List<PollResult>> response = client.Execute<List<PollResult>>(request);
-           
-           if (response.StatusCode.ToString() == "OK" && response.Data != null)
-            {
 
-                return View(response.Data); // modify as per your need
+            var client_poll = new RestClient(Common.Common.ApirUrl + "/api/PublicPoll/GetPublic");
+            IRestResponse<List<MyPolls>> response_poll = client_poll.Execute<List<MyPolls>>(request);
+            if (response.StatusCode.ToString() == "OK" && response.Data != null)
+            {
+                var pollresult = response_poll.Data.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
+                ViewBag.Question = pollresult.question;
+                ViewBag.responseCompleted = pollresult.responseCompleted;
+                return View(response.Data.OrderBy(m=>m.choice).ToList()); // modify as per your need
             }
             else
             {

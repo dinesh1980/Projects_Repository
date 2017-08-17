@@ -42,6 +42,7 @@ namespace Polls.Controllers
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
             request.AddHeader("version", "1.0");
+
             request.AddJsonBody(login);
 
             IRestResponse<LoginResponse> response = client.Execute<LoginResponse>(request);          
