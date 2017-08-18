@@ -216,8 +216,11 @@
     <Compile Include="Models\GetAllFilterbyCategoryResponse.cs" />
     <Compile Include="Models\GetCategoriesResponse.cs" />
     <Compile Include="Models\GetMyPollsModel.cs" />
+    <Compile Include="Models\GetPollRequest.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\MyPolls.cs" />
+    <Compile Include="Models\PollResult.cs" />
+    <Compile Include="Models\PollResultViewModel.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Registration.cs" />
     <Compile Include="Models\UpdateProfile.cs" />

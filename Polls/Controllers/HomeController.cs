@@ -78,6 +78,8 @@ namespace Polls.Controllers
 
         public ActionResult GetPollResult(string pollId)
         {
+           
+            PollResultViewModel pollResultviewModel = new PollResultViewModel();
             if (pollId == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -86,7 +88,7 @@ namespace Polls.Controllers
             var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetPollResult");
             GetPollRequest requestbody = new GetPollRequest();
             requestbody.viewAll = true;
-            requestbody.pollId =  Convert.ToInt32(pollId);
+            requestbody.pollId = Convert.ToInt32(pollId);
 
 
             var request = new RestRequest(Method.POST);
@@ -96,15 +98,23 @@ namespace Polls.Controllers
             request.AddJsonBody(requestbody);
 
             IRestResponse<List<PollResult>> response = client.Execute<List<PollResult>>(request);
+            if (response.StatusCode.ToString() == "OK" && response.Data != null)
+            {
+                pollResultviewModel.PollResults = response.Data.OrderBy(c => c.choice).ToList();
+            }
 
             var client_poll = new RestClient(Common.Common.ApirUrl + "/api/PublicPoll/GetPublic");
             IRestResponse<List<MyPolls>> response_poll = client_poll.Execute<List<MyPolls>>(request);
-            if (response.StatusCode.ToString() == "OK" && response.Data != null)
+            if (response_poll.StatusCode.ToString() == "OK" && response_poll.Data != null)
             {
+                // pollResultviewModel.myPolls = response_poll.Data;
                 var pollresult = response_poll.Data.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
-                ViewBag.Question = pollresult.question;
-                ViewBag.responseCompleted = pollresult.responseCompleted;
-                return View(response.Data.OrderBy(m=>m.choice).ToList()); // modify as per your need
+                pollResultviewModel.myPolls = pollresult;
+               
+                //  ViewBag.Question = pollresult.question;
+                //  ViewBag.responseCompleted = pollresult.responseCompleted;
+                //  return View(response.Data.OrderBy(m => m.choice).ToList()); // modify as per your need
+                return View(pollResultviewModel);
             }
             else
             {
