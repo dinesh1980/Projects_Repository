@@ -38,7 +38,10 @@
                             }
                         </span>
                     </div>
-                    <a href="#">@item.question ?</a>
+                    <a href="/Home/GetPollResult?pollId=@item.pollId">@item.question ?</a>
+                    <div class="pull-right" style="padding-right:15px">
+                        <a href="#">@item.userName </a>
+                    </div>
                 </li>
             }
 

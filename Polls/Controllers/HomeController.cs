@@ -13,7 +13,7 @@ namespace Polls.Controllers
     [CheckSession]
     public class HomeController : Controller
     {
-        public ActionResult Index(int? page, string catname = "")
+        public ActionResult Index(int? page, string catname = "",string username="")
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
             GetMyPollsModel pollsparameter = new GetMyPollsModel();
@@ -48,6 +48,11 @@ namespace Polls.Controllers
                     pools = response.Data.Where(x => x.mainCatName.ToLower() == catname.ToLower()).ToList();
                 else
                     pools = response.Data.ToList();
+
+                if (!string.IsNullOrEmpty(username))
+                {
+                    pools = pools.Where(x => x.userName.ToLower() == username.ToLower()).ToList();
+                }
             }
 
             return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
