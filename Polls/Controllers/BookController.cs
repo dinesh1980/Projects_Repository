@@ -47,5 +47,81 @@ namespace Polls.Controllers
 
             return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
+
+        public ActionResult GetAllFilterCategories()
+        {
+            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
+            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetAllFilterCategories");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("content-type", "application/json");
+            request.AddHeader("userid", loginRespone.userId);
+            request.AddHeader("token", loginRespone.token);
+
+            IRestResponse<List<GetAllFilterbyCategoryResponse>> response = client.Execute<List<GetAllFilterbyCategoryResponse>>(request);
+
+            if (response.StatusCode.ToString() == "OK" && response.Data != null)
+            {
+
+                return View("Index", "Home"); // modify as per your need
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid Username/Password !!");
+            }
+            return View(); // modify as per your need
+        }
+
+        public ActionResult GetPollResult(string pollId)
+        {
+
+            PollResultViewModel pollResultviewModel = new PollResultViewModel();
+            if (pollId == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
+            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetPollResult");
+            GetPollRequest requestbody = new GetPollRequest();
+            requestbody.viewAll = true;
+            requestbody.pollId = Convert.ToInt32(pollId);
+
+
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("content-type", "application/json");
+            request.AddHeader("userid", loginRespone.userId);
+            request.AddHeader("token", loginRespone.token);
+            request.AddJsonBody(requestbody);
+
+            IRestResponse<List<PollResult>> response = client.Execute<List<PollResult>>(request);
+            if (response.StatusCode.ToString() == "OK" && response.Data != null)
+            {
+                pollResultviewModel.PollResults = response.Data.OrderBy(c => c.choice).ToList();
+            }
+
+            var client_poll = new RestClient(Common.Common.ApirUrl + "/api/PublicPoll/GetPublic");
+            IRestResponse<List<MyPolls>> response_poll = client_poll.Execute<List<MyPolls>>(request);
+            if (response_poll.StatusCode.ToString() == "OK" && response_poll.Data != null)
+            {
+                // pollResultviewModel.myPolls = response_poll.Data;
+                var pollresult = response_poll.Data.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
+                pollresult.firstImagePath = Common.Common.ThumbnailBaseUrl + pollresult.firstImagePath;
+                pollresult.secondImagePath = Common.Common.ThumbnailBaseUrl + pollresult.secondImagePath;
+
+                pollResultviewModel.myPolls = pollresult;
+
+
+                //  ViewBag.Question = pollresult.question;
+                //  ViewBag.responseCompleted = pollresult.responseCompleted;
+                //  return View(response.Data.OrderBy(m => m.choice).ToList()); // modify as per your need
+                return View(pollResultviewModel);
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid Username/Password !!");
+            }
+            return View(); // modify as per your need
+        }
     }
+
+   
 }

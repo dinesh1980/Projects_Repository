@@ -25,7 +25,12 @@
                 </button>
                 @Html.ActionLink("Poll Application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <ul class="nav navbar-nav navbar-right">
+
+            <ul class="nav nav-pills navbar-right">
+                @if (Session["UserDetails"] != null)
+                {
+                    <li role="presentation" style="padding:7px;" class="active"><a href="#">My Polls</a></li>
+                }
                 <li>
                     @if (Session["UserDetails"] != null)
                     {
@@ -49,7 +54,7 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 <li><a href="@Url.Action("Index", "Login")">Login</a></li>
-                               
+
                             </ul>
                         </div>
 
