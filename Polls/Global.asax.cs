@@ -11,6 +11,7 @@ namespace Polls
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+     
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -18,6 +19,8 @@ namespace Polls
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Common.Common.ApirUrl = ConfigurationManager.AppSettings["ApiUrl"].ToString();
+            Common.Common.FullImageBaseUrl = ConfigurationManager.AppSettings["FullImageBaseUrl"].ToString();
+            Common.Common.ThumbnailBaseUrl = ConfigurationManager.AppSettings["ThumbnailImageBaseUrl"].ToString();
         }
     }
 }

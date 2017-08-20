@@ -68,7 +68,17 @@
                     <h2>
                         @Model.myPolls.question
                     </h2>
+                    <div class="input-group">
+                        <span style="padding:20px">
+                            <img src=@Model.myPolls.firstImagePath />
+                        </span>
+                        <span style="padding:20px">
+                            <img src=@Model.myPolls.secondImagePath />
+                        </span>
+                    </div>
+
                 </div>
+
             </div>
             <div class="row poll-action-row">
                 <div class="col-sm-6">
@@ -82,10 +92,10 @@
                                     <span class="label label-default" style="margin-right: 10px;">@Convert.ToString(items.Split(':')[1]).Replace('"', ' ').Replace('}', ' ').Replace(']', ' ').Trim() </span>
                                 }
                             }
-                        
+
                         </span>
                     </p>
-                   
+
                 </div>
                 @*<div class="col-sm-6 poll-actions">
                         <ul class="list-inline list-links">

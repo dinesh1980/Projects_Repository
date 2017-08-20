@@ -109,7 +109,7 @@
         </div>
     </section>
     <div class="container">
-     
+
         <div class="row narrow-wrapper">
             <div class="col-sm-8 col-sm-offset-2">
 
@@ -145,7 +145,7 @@
                                     @Html.HiddenFor(model => model.newProfileContact.companyName)
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="form-group">
 
@@ -158,7 +158,7 @@
                                 </div>
                             </div>
                         </div>
-                     
+
                         @*<div class="form-group">
                                 <label class="col-md-4 control-label" for="user_email">Company Name</label>
                                 <div class="col-md-8 inputGroupContainer">
@@ -238,15 +238,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">Phone</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-                                    @Html.TextBoxFor(model => model.newProfileContact.phoneNumber, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.phoneNumber)
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="user_email">Birth Date</label>
                             <div class="col-md-8 inputGroupContainer">
@@ -271,16 +263,32 @@
                                     </div>
                                 </div>
                             </div>*@
-                        
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">PayPal Email</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-                                    @Html.TextBoxFor(model => model.newProfileContact.payPalEmail, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.payPalEmail)
+                        if (Model.newProfileContact.isPhonePublic)
+                        {
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">Phone</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(model => model.newProfileContact.phoneNumber, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.newProfileContact.phoneNumber)
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
+                        if (Model.newProfileContact.isEmailPublic)
+                        {
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">PayPal Email</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(model => model.newProfileContact.payPalEmail, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.newProfileContact.payPalEmail)
+                                    </div>
+                                </div>
+                            </div>
+                        }
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="user_email"></label>
                             <div class="col-md-8 inputGroupContainer">

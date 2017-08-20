@@ -8,6 +8,8 @@ namespace Polls.Common
     public class Common
     {
         public static string ApirUrl = string.Empty;
+        public static string FullImageBaseUrl { get; set; }
+        public static string ThumbnailBaseUrl { get; set; }
     }
     public static class LoggedInUserDetails
     {
