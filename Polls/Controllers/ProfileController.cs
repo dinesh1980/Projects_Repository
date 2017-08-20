@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Polls.Controllers
 {
-    [CheckSession]
+    // [CheckSession]
     public class ProfileController : Controller
     {
         // GET: Profile
@@ -28,7 +28,7 @@ namespace Polls.Controllers
             var request = new RestRequest(Method.POST);
             request.AddHeader("token", loginRespone.token);
             request.AddHeader("userid", loginRespone.userId);
-            request.AddHeader("content-type", "application/json");           
+            request.AddHeader("content-type", "application/json");
             IRestResponse<Profile> response = client.Execute<Profile>(request);
             Profile profile = new Models.Profile();
             if (response.StatusCode.ToString() == "OK")
@@ -59,7 +59,7 @@ namespace Polls.Controllers
 
                 if (response.StatusCode.ToString() == "OK")
                 {
-                    
+
                 }
             }
             return View();
