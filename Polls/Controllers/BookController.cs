@@ -121,6 +121,25 @@ namespace Polls.Controllers
             }
             return View(); // modify as per your need
         }
+
+        public ActionResult Viewprofile()
+        {
+            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
+            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/ViewPublicProfile");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("viewAll", "true");
+            
+            request.AddHeader("content-type", "application/json");
+            IRestResponse<Profile> response = client.Execute<Profile>(request);
+            Profile profile = new Models.Profile();
+            if (response.StatusCode.ToString() == "OK")
+            {
+                profile = response.Data;
+            }
+
+            return View(profile);
+           
+        }
     }
 
    
