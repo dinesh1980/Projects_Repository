@@ -124,11 +124,14 @@ namespace Polls.Controllers
 
         public ActionResult Viewprofile()
         {
+            ViewPublicProfile obj = new ViewPublicProfile();
+            obj.id = "";
+            obj.viewAll = true;
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
             var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/ViewPublicProfile");
             var request = new RestRequest(Method.POST);
-            request.AddHeader("viewAll", "true");
-            
+            request.AddJsonBody(obj);
+
             request.AddHeader("content-type", "application/json");
             IRestResponse<Profile> response = client.Execute<Profile>(request);
             Profile profile = new Models.Profile();
