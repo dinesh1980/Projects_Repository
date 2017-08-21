@@ -7,10 +7,7 @@ namespace Polls.Models
 {
     public class ViewPublicProfile
     {
-     
-            public string id { get; set; }
-            public bool viewAll { get; set; }
-       
-
+        public string  id { get; set; }
+        public bool viewAll { get; set; }
     }
 }

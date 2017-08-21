@@ -18,16 +18,16 @@ namespace Polls.Controllers
             GetMyPollsModel pollsparameter = new GetMyPollsModel();
             pollsparameter.pageSize = 20;
             pollsparameter.pageNumber = (page ?? 1);
-            var client = new RestClient(Common.Common.ApirUrl + "/api/PublicPoll/GetPublic");
+            var client = new RestClient(Common.Common.ApirUrl + "PublicPoll/GetPublic");
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
             request.AddJsonBody(pollsparameter);
             IRestResponse<List<MyPolls>> response = client.Execute<List<MyPolls>>(request);
             List<MyPolls> pools = null;
-            var client_Categories = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetCategories");
+            var client_Categories = new RestClient(Common.Common.ApirUrl + "Polls/GetCategories");
             var request_Categories = new RestRequest(Method.GET);
             request_Categories.AddHeader("content-type", "application/json");
-            IRestResponse<List<GetCategoriesResponse>> response_Categories = client_Categories.Execute<List<GetCategoriesResponse>>(request_Categories);
+           IRestResponse<List<GetCategoriesResponse>> response_Categories = client_Categories.Execute<List<GetCategoriesResponse>>(request_Categories);
             if (response_Categories.StatusCode.ToString() == "OK" && response_Categories.Data != null)
             {
                 ViewBag.Categories = response_Categories.Data;
@@ -48,28 +48,7 @@ namespace Polls.Controllers
             return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
 
-        public ActionResult GetAllFilterCategories()
-        {
-            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
-            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetAllFilterCategories");
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("content-type", "application/json");
-            request.AddHeader("userid", loginRespone.userId);
-            request.AddHeader("token", loginRespone.token);
 
-            IRestResponse<List<GetAllFilterbyCategoryResponse>> response = client.Execute<List<GetAllFilterbyCategoryResponse>>(request);
-
-            if (response.StatusCode.ToString() == "OK" && response.Data != null)
-            {
-
-                return View("Index", "Home"); // modify as per your need
-            }
-            else
-            {
-                ModelState.AddModelError(string.Empty, "Invalid Username/Password !!");
-            }
-            return View(); // modify as per your need
-        }
 
         public ActionResult GetPollResult(string pollId)
         {
@@ -77,10 +56,9 @@ namespace Polls.Controllers
             PollResultViewModel pollResultviewModel = new PollResultViewModel();
             if (pollId == null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Book");
             }
-            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
-            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetPollResult");
+            var client = new RestClient(Common.Common.ApirUrl + "PublicPoll/GetPollResult");
             GetPollRequest requestbody = new GetPollRequest();
             requestbody.viewAll = true;
             requestbody.pollId = Convert.ToInt32(pollId);
@@ -88,8 +66,6 @@ namespace Polls.Controllers
 
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
-            request.AddHeader("userid", loginRespone.userId);
-            request.AddHeader("token", loginRespone.token);
             request.AddJsonBody(requestbody);
 
             IRestResponse<List<PollResult>> response = client.Execute<List<PollResult>>(request);
@@ -98,7 +74,7 @@ namespace Polls.Controllers
                 pollResultviewModel.PollResults = response.Data.OrderBy(c => c.choice).ToList();
             }
 
-            var client_poll = new RestClient(Common.Common.ApirUrl + "/api/PublicPoll/GetPublic");
+            var client_poll = new RestClient(Common.Common.ApirUrl + "PublicPoll/GetPublic");
             IRestResponse<List<MyPolls>> response_poll = client_poll.Execute<List<MyPolls>>(request);
             if (response_poll.StatusCode.ToString() == "OK" && response_poll.Data != null)
             {
@@ -108,11 +84,6 @@ namespace Polls.Controllers
                 pollresult.secondImagePath = Common.Common.ThumbnailBaseUrl + pollresult.secondImagePath;
 
                 pollResultviewModel.myPolls = pollresult;
-
-
-                //  ViewBag.Question = pollresult.question;
-                //  ViewBag.responseCompleted = pollresult.responseCompleted;
-                //  return View(response.Data.OrderBy(m => m.choice).ToList()); // modify as per your need
                 return View(pollResultviewModel);
             }
             else
@@ -122,28 +93,30 @@ namespace Polls.Controllers
             return View(); // modify as per your need
         }
 
-        public ActionResult Viewprofile()
+        public ActionResult Viewprofile(string userId)
         {
+            if (userId == "")
+            {
+                return RedirectToAction("Index");
+            }
             ViewPublicProfile obj = new ViewPublicProfile();
-            obj.id = "";
+            obj.id = userId;
             obj.viewAll = true;
-            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
-            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/ViewPublicProfile");
+            var client = new RestClient(Common.Common.ApirUrl + "/PublicPoll/ViewPublicProfile");
             var request = new RestRequest(Method.POST);
             request.AddJsonBody(obj);
-
             request.AddHeader("content-type", "application/json");
-            IRestResponse<Profile> response = client.Execute<Profile>(request);
-            Profile profile = new Models.Profile();
+            IRestResponse<ViewPublicProfileResponse> response = client.Execute<ViewPublicProfileResponse>(request);
+            ViewPublicProfileResponse profile = new Models.ViewPublicProfileResponse();
             if (response.StatusCode.ToString() == "OK")
             {
                 profile = response.Data;
             }
 
             return View(profile);
-           
+
         }
     }
 
-   
+
 }

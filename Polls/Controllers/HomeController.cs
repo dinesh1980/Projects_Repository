@@ -19,7 +19,7 @@ namespace Polls.Controllers
             GetMyPollsModel pollsparameter = new GetMyPollsModel();
             pollsparameter.pageSize = 20;
             pollsparameter.pageNumber = (page ?? 1);
-            var client = new RestClient(Common.Common.ApirUrl + "/api/PublicPoll/GetPublic");
+            var client = new RestClient(Common.Common.ApirUrl + "PublicPoll/GetPublic");
             var request = new RestRequest(Method.POST);
             request.AddHeader("token", loginRespone.token);
             request.AddHeader("userid", loginRespone.userId);
@@ -27,7 +27,7 @@ namespace Polls.Controllers
             request.AddJsonBody(pollsparameter);
             IRestResponse<List<MyPolls>> response = client.Execute<List<MyPolls>>(request);
             List<MyPolls> pools = null;
-            var client_Categories = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetCategories");
+            var client_Categories = new RestClient(Common.Common.ApirUrl + "Polls/GetCategories");
             var request_Categories = new RestRequest(Method.GET);
             request_Categories.AddHeader("content-type", "application/json");
             request_Categories.AddHeader("userid", loginRespone.userId);
@@ -61,7 +61,7 @@ namespace Polls.Controllers
         public ActionResult GetAllFilterCategories()
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
-            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetAllFilterCategories");
+            var client = new RestClient(Common.Common.ApirUrl + "Polls/GetAllFilterCategories");
             var request = new RestRequest(Method.GET);
             request.AddHeader("content-type", "application/json");
             request.AddHeader("userid", loginRespone.userId);
@@ -90,7 +90,7 @@ namespace Polls.Controllers
                 return RedirectToAction("Index", "Home");
             }
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
-            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/GetPollResult");
+            var client = new RestClient(Common.Common.ApirUrl + "Polls/GetPollResult");
             GetPollRequest requestbody = new GetPollRequest();
             requestbody.viewAll = true;
             requestbody.pollId = Convert.ToInt32(pollId);
@@ -108,7 +108,7 @@ namespace Polls.Controllers
                 pollResultviewModel.PollResults = response.Data.OrderBy(c => c.choice).ToList();
             }
 
-            var client_poll = new RestClient(Common.Common.ApirUrl + "/api/PublicPoll/GetPublic");
+            var client_poll = new RestClient(Common.Common.ApirUrl + "PublicPoll/GetPublic");
             IRestResponse<List<MyPolls>> response_poll = client_poll.Execute<List<MyPolls>>(request);
             if (response_poll.StatusCode.ToString() == "OK" && response_poll.Data != null)
             {

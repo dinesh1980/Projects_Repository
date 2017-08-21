@@ -24,7 +24,7 @@ namespace Polls.Controllers
         public ActionResult ViewProfile()
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
-            var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/ViewProfile");
+            var client = new RestClient(Common.Common.ApirUrl + "Polls/ViewProfile");
             var request = new RestRequest(Method.POST);
             request.AddHeader("token", loginRespone.token);
             request.AddHeader("userid", loginRespone.userId);
@@ -49,7 +49,7 @@ namespace Polls.Controllers
             if (ModelState.IsValid)
             {
                 LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
-                var client = new RestClient(Common.Common.ApirUrl + "/api/Polls/UpdateProfile");
+                var client = new RestClient(Common.Common.ApirUrl + "Polls/UpdateProfile");
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("token", loginRespone.token);
                 request.AddHeader("userid", loginRespone.userId);

@@ -38,7 +38,7 @@ namespace Polls.Controllers
             obj.snsDeviceId = Guid.NewGuid().ToString();// "d4bc2ea4-1868-469b-a6c3-0f518e4f0218";
             login.newDevice = obj;
 
-            var client = new RestClient(Common.Common.ApirUrl+"/api/Polls/Login");
+            var client = new RestClient(Common.Common.ApirUrl+"Polls/Login");
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
             request.AddHeader("version", "1.0");

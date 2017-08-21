@@ -27,6 +27,7 @@ namespace Polls.Models
         public bool isPublic { get; set; }
         public string filtersJson { get; set; }
         public int responseCompleted { get; set; }
+        public string userId { get; set; }
     }
     public class FiltersJson {
         public string FilterName { get; set; }
