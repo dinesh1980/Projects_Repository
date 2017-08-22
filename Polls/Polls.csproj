@@ -225,19 +225,51 @@
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Registration.cs" />
     <Compile Include="Models\UpdateProfile.cs" />
+    <Compile Include="Models\ViewPublicProfile.cs" />
+    <Compile Include="Models\ViewPublicProfileResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Book\Content\images\close.png" />
+    <Content Include="Book\Content\images\lightbox-blank.gif" />
+    <Content Include="Book\Content\images\lightbox-btn-close.gif" />
+    <Content Include="Book\Content\images\lightbox-btn-next.gif" />
+    <Content Include="Book\Content\images\lightbox-btn-prev.gif" />
+    <Content Include="Book\Content\images\lightbox-ico-loading.gif" />
+    <Content Include="Book\Content\images\loading.gif" />
+    <Content Include="Book\Content\images\next.png" />
+    <Content Include="Book\Content\images\prev.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\dataTables.jqueryui.css" />
+    <Content Include="Content\icomoon.css" />
+    <Content Include="Content\jquery.lightbox-0.5.css" />
+    <Content Include="Content\lightbox.css" />
+    <Content Include="Content\lightbox.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\images\close.png" />
+    <Content Include="Content\images\lightbox-blank.gif" />
+    <Content Include="Content\images\lightbox-btn-close.gif" />
+    <Content Include="Content\images\lightbox-btn-next.gif" />
+    <Content Include="Content\images\lightbox-btn-prev.gif" />
+    <Content Include="Content\images\lightbox-ico-loading.gif" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\next.png" />
+    <Content Include="Content\images\prev.png" />
+    <Content Include="images\close.png" />
+    <Content Include="images\lightbox-blank.gif" />
+    <Content Include="images\lightbox-btn-close.gif" />
+    <Content Include="images\lightbox-btn-next.gif" />
+    <Content Include="images\lightbox-btn-prev.gif" />
+    <Content Include="images\lightbox-ico-loading.gif" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\next.png" />
+    <Content Include="images\prev.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
@@ -246,6 +278,14 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\icomoon.eot" />
+    <Content Include="fonts\icomoon.ttf" />
+    <Content Include="fonts\icomoon.woff" />
+    <Content Include="fonts\Lato-Bold.ttf" />
+    <Content Include="fonts\Lato-Regular.ttf" />
+    <Content Include="fonts\TrajanPro-Bold.ttf" />
+    <Content Include="fonts\TrajanPro-Regular.ttf" />
+    <None Include="Properties\PublishProfiles\pub.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -280,6 +320,7 @@
     <Content Include="Views\Home\GetPollResult.cshtml" />
     <Content Include="Views\Book\Index.cshtml" />
     <Content Include="Views\Book\GetPollResult.cshtml" />
+    <Content Include="Views\Book\Viewprofile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
