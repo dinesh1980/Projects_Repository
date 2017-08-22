@@ -76,7 +76,7 @@ namespace Polls.Models
         [Required(ErrorMessage = "Please enter Zip Code")]
         public string addressZip { get; set; }
         public string pictureUrl { get; set; }
-        public Profilepictures profilePictures { get; set; }
+        public Dictionary<string,string> profilePictures { get; set; }
         public bool isEmailVerified { get; set; }
         public bool isPhoneVerified { get; set; }
         public int publicPolls { get; set; }

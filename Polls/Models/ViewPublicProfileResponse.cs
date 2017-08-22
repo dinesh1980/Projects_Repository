@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Polls.Models
 {
-  
+
     public class ViewPublicProfileResponse
     {
         public string id { get; set; }
@@ -29,7 +29,7 @@ namespace Polls.Models
         public string addressState { get; set; }
         public string addressZip { get; set; }
         public string pictureUrl { get; set; }
-        public Profilepictures profilePictures { get; set; }
+        public IDictionary<string, string> profilePictures { get; set; }
         public bool isEmailVerified { get; set; }
         public bool isPhoneVerified { get; set; }
         public int publicPolls { get; set; }
@@ -46,4 +46,6 @@ namespace Polls.Models
         public Boolean isEmailPublic { get; set; } = false;
     }
 
-  }
+
+
+}

@@ -1,4 +1,5 @@
-﻿using PagedList;
+﻿using Newtonsoft.Json;
+using PagedList;
 using Polls.Models;
 using RestSharp;
 using System;
@@ -102,7 +103,7 @@ namespace Polls.Controllers
             ViewPublicProfile obj = new ViewPublicProfile();
             obj.id = userId;
             obj.viewAll = true;
-            var client = new RestClient(Common.Common.ApirUrl + "/PublicPoll/ViewPublicProfile");
+            var client = new RestClient(Common.Common.ApirUrl + "PublicPoll/ViewPublicProfile");
             var request = new RestRequest(Method.POST);
             request.AddJsonBody(obj);
             request.AddHeader("content-type", "application/json");
@@ -110,7 +111,9 @@ namespace Polls.Controllers
             ViewPublicProfileResponse profile = new Models.ViewPublicProfileResponse();
             if (response.StatusCode.ToString() == "OK")
             {
-                profile = response.Data;
+               // profile = response.Data;
+                profile = JsonConvert.DeserializeObject<ViewPublicProfileResponse>(response.Content);
+                
             }
 
             return View(profile);
