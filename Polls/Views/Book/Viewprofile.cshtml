@@ -98,6 +98,14 @@
 
         bindDatePicker();
     });
+
+    $('#myModal').on('shown.bs.modal', function () {
+        $(this).find('.modal-dialog').css({
+            width: 'auto',
+            height: 'auto',
+            'max-height': '100%'
+        });
+    });
 </script>
 <section class="normal section-list">
     <br />
@@ -123,7 +131,7 @@
                             </div>
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
-                                    <a href=@Model.pictureUrl.Replace("Thumbnail","Full")><img src=@Model.pictureUrl /> </a>
+                                    <a href=@Model.pictureUrl.Replace("Thumbnail","Full") data-toggle="modal" data-target="#myModal"><img src=@Model.pictureUrl /> </a>
 
                                 </div>
                             </div>
@@ -356,6 +364,26 @@
             </div>
         </div>
 
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">View Profile</h4>
+                </div>
+                <div class="modal-body">
+                    <p><img src=@Model.pictureUrl.Replace("Thumbnail", "Full") /></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </section>
