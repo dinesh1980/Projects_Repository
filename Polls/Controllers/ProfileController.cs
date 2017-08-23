@@ -21,13 +21,17 @@ namespace Polls.Controllers
         ///  View Profile 
         /// </summary>
         /// <returns></returns>
-        public ActionResult ViewProfile()
+        public ActionResult ViewProfile(string userId)
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
             var client = new RestClient(Common.Common.ApirUrl + "Polls/ViewProfile");
             var request = new RestRequest(Method.POST);
-            request.AddHeader("token", loginRespone.token);
-            request.AddHeader("userid", loginRespone.userId);
+           
+                request.AddHeader("token", loginRespone.token);
+            if (userId != "")
+                request.AddHeader("userid", userId);
+            else
+                request.AddHeader("userid", loginRespone.userId);
             request.AddHeader("content-type", "application/json");
             IRestResponse<Profile> response = client.Execute<Profile>(request);
             Profile profile = new Models.Profile();
