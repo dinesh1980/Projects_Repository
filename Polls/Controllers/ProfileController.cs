@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Polls.Controllers
 {
-    // [CheckSession]
+    [CheckSession]
     public class ProfileController : Controller
     {
         // GET: Profile
