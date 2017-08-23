@@ -28,7 +28,7 @@ namespace Polls.Controllers
             var request = new RestRequest(Method.POST);
            
                 request.AddHeader("token", loginRespone.token);
-            if (userId != "")
+            if (userId!= null && userId != "")
                 request.AddHeader("userid", userId);
             else
                 request.AddHeader("userid", loginRespone.userId);
