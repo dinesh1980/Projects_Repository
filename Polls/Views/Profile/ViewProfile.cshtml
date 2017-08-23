@@ -123,8 +123,15 @@
                             </div>
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
-                                    <img src=@Model.newProfileContact.pictureUrl />
-                                </div>
+                                    <ul class="clearfix">
+                                        <li>
+                                            <a href="@Model.newProfileContact.pictureUrl.Replace("Thumbnail", "Full")">
+                                                <img src="@Model.newProfileContact.pictureUrl" alt="">
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                
                             </div>
                         </div>
 

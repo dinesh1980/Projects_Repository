@@ -69,12 +69,31 @@
                         @Model.myPolls.question
                     </h2>
                     <div class="input-group">
-                        <span style="padding:20px">
-                            <img src=@Model.myPolls.firstImagePath />
-                        </span>
-                        <span style="padding:20px">
-                            <img src=@Model.myPolls.secondImagePath />
-                        </span>
+                        <table>
+                            <tr>
+                                <td class="thumbnails" style="padding:20px">
+                                    <ul class="clearfix">
+                                        <li>
+                                            <a href="@Model.myPolls.firstImagePath">
+                                                <img src="@Model.myPolls.firstImagePath" alt="">
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </td>
+
+                                <td class="thumbnails" style="padding:20px">
+                                    <ul class="clearfix">
+                                        <li>
+                                            <a href="@Model.myPolls.secondImagePath">
+                                                <img src="@Model.myPolls.secondImagePath" alt="">
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
 
                 </div>

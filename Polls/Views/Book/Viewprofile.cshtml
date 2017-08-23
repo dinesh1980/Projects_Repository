@@ -3,9 +3,6 @@
     ViewBag.Title = "View Profile";
 }
 
-<link href="~/Content/icomoon.css" rel="stylesheet" />
-<link href="~/Content/jquery.lightbox-0.5.css" rel="stylesheet" />
-<link href="~/Content/lightbox.css" rel="stylesheet" />
 <style>
     section.section-list {
         padding-bottom: 2rem;
@@ -52,6 +49,31 @@
     .input-group-addon, .input-group-btn {
         width: 0%;
     }
+
+
+    #jquery-lightbox {
+        width: 110%;
+        max-width: 110%;
+        transform: translateX(-5%);
+    }
+
+    [class^="thumbnails"] li {
+        background: none;
+        box-shadow: none;
+    }
+
+    .jquery-lightbox {
+        top: 20px !important;
+    }
+
+    img {
+        vertical-align: middle;
+    }
+
+     ul li {
+            list-style-type: none;
+    }
+
 </style>
 
 <script type="text/javascript">
@@ -145,7 +167,7 @@
                                         </ul>
                                     </div>
 
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -298,7 +320,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
 
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="user_email">Birth Date</label>
@@ -378,16 +400,6 @@
         </div>
 
     </div>
-    <script type="text/javascript" src="http://112.196.3.42:8198/Scripts/jquery.lightbox-0.5.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            debugger;
-            $("[class^=thumbnails] a").each(function (index) {
-                alert("test");
-                $(this).lightBox();
-            });
-        });
-    </script>
 
 
 </section>

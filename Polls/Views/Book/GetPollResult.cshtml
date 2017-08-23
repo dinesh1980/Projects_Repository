@@ -62,23 +62,41 @@
                     </div>
                 </div>
             </div>
-
             <div class="card card-block ">
                 <div class="question-display">
                     <h2>
                         @Model.myPolls.question
                     </h2>
                     <div class="input-group">
-                        <span style="padding:20px">
-                            <img src=@Model.myPolls.firstImagePath />
-                        </span>
-                        <span style="padding:20px">
-                            <img src=@Model.myPolls.secondImagePath />
-                        </span>
+                        <table>
+                            <tr>
+                                <td class="thumbnails" style="padding:20px">
+                                    <ul class="clearfix">
+                                        <li>
+                                            <a href="@Model.myPolls.firstImagePath">
+                                                <img src="@Model.myPolls.firstImagePath" alt="">
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </td>
+
+                                <td class="thumbnails" style="padding:20px">
+                                    <ul class="clearfix">
+                                        <li>
+                                            <a href="@Model.myPolls.secondImagePath">
+                                                <img src="@Model.myPolls.secondImagePath" alt="">
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+
+                        
                     </div>
-
                 </div>
-
             </div>
             <div class="row poll-action-row">
                 <div class="col-sm-6">
@@ -92,10 +110,8 @@
                                     <span class="label label-default" style="margin-right: 10px;">@Convert.ToString(items.Split(':')[1]).Replace('"', ' ').Replace('}', ' ').Replace(']', ' ').Trim() </span>
                                 }
                             }
-
                         </span>
                     </p>
-
                 </div>
                 @*<div class="col-sm-6 poll-actions">
                         <ul class="list-inline list-links">
@@ -113,7 +129,6 @@
                         </ul>
                     </div>*@
             </div>
-
             @*<div class="answers">
                     <div class="row card-columns">
                         @foreach (var item in Model)
@@ -176,10 +191,8 @@
                     </div>
 
                 </div>*@ <!-- container -->
-
             <div class="card card-block">
                 <h3 class="card-title">Responses</h3>
-
                 <div class="row">
                     <div class="col-sm-6">
                         <table class="table table-hover table-bordered table-sm poll-responses" data-ga-trk-hvr="responses-A">
@@ -1042,7 +1055,6 @@
                         </div>
                     </div>
                 </div>*@
-
             <script>
                 var hlt_rows_active_id = null;
                 function toggle_hlt_rows(ids, src_elt) {
@@ -1069,7 +1081,6 @@
                     };
                 };
             </script>
-
             <style>
                 .qtable td p {
                     font-size: 1.2em;

@@ -13,25 +13,25 @@
                 My Polls
             </h2>
         </div>
-        <table>
-            <tr>
-                <th>
-                    Question
-                </th>
-                <th>
-                    Options
-                </th>
-            </tr>
+        <table class="table">
+            <thead class="thead-default">
+                <tr>
+                    <th>
+                        Question
+                    </th>
+                    <th>
+                        Options
+                    </th>
+                </tr>
+            </thead>
             @foreach (var item in Model)
             {
                 <tr>
                     <td>
 
-                        @item.question
+                        <a href="/Home/GetPollResult?pollId=@item.pollId">  @item.question </a>
                     </td>
-                    <td>
-
-                    </td>
+                    <td></td>
                 </tr>
 
             }
