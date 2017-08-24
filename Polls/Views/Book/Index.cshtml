@@ -38,10 +38,10 @@
                             }
                         </span>
                     </div>
-                    <a href='@Url.Action("GetPollResult", "Book", new { pollId = @item.pollId, CateName = @item.question })'>@item.question ?</a>
+                    <a href='@Url.Action("GetPollResult", "Public", new { pollId = @item.pollId})'>@item.question ?</a>
                     @*<a href="/Book/GetPollResult?pollId=@item.pollId?CateName=@item.catName">@item.question ?</a>*@
                     <div class="pull-right" style="padding-right:15px">
-                        <a href="/Book/ViewProfile?userId=@item.userId">@item.userName </a>
+                        <a href="/Public/Viewprofile?userId=@item.userId">@item.userName </a>
                     </div>
                 </li>
             }
