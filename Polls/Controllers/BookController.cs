@@ -9,10 +9,18 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace Polls.Controllers
-{
+{   
+    
+    [Route(Name ="Public")]
     public class BookController : Controller
     {
+        public ActionResult Index()
+        {
+            return RedirectToAction("Index", new {catname = "Public" });
+        }
+
         // GET: Book
+        [Route("~/{catname}/Index")]
         public ActionResult Index(int? page, string catname = "")
         {
 
@@ -28,7 +36,7 @@ namespace Polls.Controllers
             var client_Categories = new RestClient(Common.Common.ApirUrl + "Polls/GetCategories");
             var request_Categories = new RestRequest(Method.GET);
             request_Categories.AddHeader("content-type", "application/json");
-           IRestResponse<List<GetCategoriesResponse>> response_Categories = client_Categories.Execute<List<GetCategoriesResponse>>(request_Categories);
+            IRestResponse<List<GetCategoriesResponse>> response_Categories = client_Categories.Execute<List<GetCategoriesResponse>>(request_Categories);
             if (response_Categories.StatusCode.ToString() == "OK" && response_Categories.Data != null)
             {
                 ViewBag.Categories = response_Categories.Data;
@@ -50,8 +58,8 @@ namespace Polls.Controllers
         }
 
 
-
-        public ActionResult GetPollResult(string pollId)
+        [Route("~/{CateName}/GetPollResult")]
+        public ActionResult GetPollResult(string pollId,string CateName)
         {
 
             PollResultViewModel pollResultviewModel = new PollResultViewModel();
@@ -93,7 +101,7 @@ namespace Polls.Controllers
             }
             return View(); // modify as per your need
         }
-
+        [Route("Public/Viewprofile")]
         public ActionResult Viewprofile(string userId)
         {
             if (userId == "")
