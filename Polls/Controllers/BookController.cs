@@ -58,8 +58,8 @@ namespace Polls.Controllers
         }
 
 
-        [Route("~/{CateName}/GetPollResult")]
-        public ActionResult GetPollResult(string pollId,string CateName)
+        [Route("Public/GetPollResult")]
+        public ActionResult GetPollResult(string pollId)
         {
 
             PollResultViewModel pollResultviewModel = new PollResultViewModel();

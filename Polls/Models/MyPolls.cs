@@ -28,6 +28,8 @@ namespace Polls.Models
         public string filtersJson { get; set; }
         public int responseCompleted { get; set; }
         public string userId { get; set; }
+        public string firstImagePathFull { get; set; }
+        public string secondImagePathfull { get; set; }
     }
     public class FiltersJson {
         public string FilterName { get; set; }
