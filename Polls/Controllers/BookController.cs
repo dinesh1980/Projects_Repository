@@ -48,7 +48,7 @@ namespace Polls.Controllers
 
             if (response.StatusCode.ToString() == "OK")
             {
-                if (!string.IsNullOrEmpty(catname))
+                if (!string.IsNullOrEmpty(catname) && catname != "Public")
                     pools = response.Data.Where(x => x.mainCatName.ToLower() == catname.ToLower()).ToList();
                 else
                     pools = response.Data.ToList();
@@ -91,7 +91,8 @@ namespace Polls.Controllers
                 var pollresult = response_poll.Data.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
                 pollresult.firstImagePath = Common.Common.ThumbnailBaseUrl + pollresult.firstImagePath;
                 pollresult.secondImagePath = Common.Common.ThumbnailBaseUrl + pollresult.secondImagePath;
-
+                pollresult.firstImagePathFull = Common.Common.FullImageBaseUrl + pollresult.firstImagePath;
+                pollresult.secondImagePathfull = Common.Common.FullImageBaseUrl + pollresult.secondImagePath;
                 pollResultviewModel.myPolls = pollresult;
                 return View(pollResultviewModel);
             }

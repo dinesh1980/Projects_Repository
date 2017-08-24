@@ -118,7 +118,8 @@ namespace Polls.Controllers
                 {
                     pollresult.firstImagePath = Common.Common.ThumbnailBaseUrl + Convert.ToString(pollresult.firstImagePath);
                     pollresult.secondImagePath = Common.Common.ThumbnailBaseUrl + Convert.ToString(pollresult.secondImagePath);
-
+                    pollresult.firstImagePathFull = Common.Common.FullImageBaseUrl + pollresult.firstImagePath;
+                    pollresult.secondImagePathfull = Common.Common.FullImageBaseUrl + pollresult.secondImagePath;
                     pollResultviewModel.myPolls = pollresult;
                 }
                
