@@ -10,9 +10,18 @@ using System.Web.Mvc;
 
 namespace Polls.Controllers
 {
-    [CheckSession]
+    [CheckSession]   
+  
+   
+    [RoutePrefix("Home")]
     public class HomeController : Controller
     {
+        public ActionResult Index()
+        {
+            return RedirectToAction("Index", new { catname = "All" });
+        }
+
+        [Route("~/Home/{catname?}/Index")]
         public ActionResult Index(int? page, string catname = "",string username="")
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
@@ -44,7 +53,7 @@ namespace Polls.Controllers
 
             if (response.StatusCode.ToString() == "OK")
             {
-                if (!string.IsNullOrEmpty(catname))
+                if (!string.IsNullOrEmpty(catname) && catname!="All")
                     pools = response.Data.Where(x => x.mainCatName.ToLower() == catname.ToLower()).ToList();
                 else
                     pools = response.Data.ToList();
@@ -58,7 +67,7 @@ namespace Polls.Controllers
             return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
 
-        public ActionResult GetAllFilterCategories()
+        private ActionResult GetAllFilterCategories()
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
             var client = new RestClient(Common.Common.ApirUrl + "Polls/GetAllFilterCategories");
@@ -81,6 +90,7 @@ namespace Polls.Controllers
             return View(); // modify as per your need
         }
 
+        [Route("~/Home/GetPollResult")]
         public ActionResult GetPollResult(string pollId)
         {
            
@@ -136,6 +146,7 @@ namespace Polls.Controllers
         }
 
 
+        [Route("MyPolls")]
         public ActionResult MyPolls(int? page, string catname = "", string username = "")
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];

@@ -9,14 +9,14 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace Polls.Controllers
-{   
-    
-    [Route(Name ="Public")]
+{
+
+    [Route(Name = "Public")]
     public class BookController : Controller
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Index", new {catname = "Public" });
+            return RedirectToAction("Index", new { catname = "Public" });
         }
 
         // GET: Book
@@ -58,7 +58,7 @@ namespace Polls.Controllers
         }
 
 
-        [Route("Public/GetPollResult")]
+        [Route("~/Public/GetPollResult")]
         public ActionResult GetPollResult(string pollId)
         {
 
@@ -102,7 +102,7 @@ namespace Polls.Controllers
             }
             return View(); // modify as per your need
         }
-        [Route("Public/Viewprofile")]
+        [Route("~/Public/Viewprofile")]
         public ActionResult Viewprofile(string userId)
         {
             if (userId == "")
@@ -120,9 +120,9 @@ namespace Polls.Controllers
             ViewPublicProfileResponse profile = new Models.ViewPublicProfileResponse();
             if (response.StatusCode.ToString() == "OK")
             {
-               // profile = response.Data;
+                // profile = response.Data;
                 profile = JsonConvert.DeserializeObject<ViewPublicProfileResponse>(response.Content);
-                
+
             }
 
             return View(profile);
