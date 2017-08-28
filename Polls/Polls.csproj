@@ -323,6 +323,7 @@
     <Content Include="Views\Book\GetPollResult.cshtml" />
     <Content Include="Views\Book\Viewprofile.cshtml" />
     <Content Include="Views\Home\MyPolls.cshtml" />
+    <Content Include="Views\Book\UserName.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
