@@ -24,12 +24,12 @@ namespace Polls.Controllers
         [Route("Public")]
         public ActionResult PublicIndex()
         {
-            return Redirect("Public/Index/catname=All");
+            return Redirect("Public/c/catname=All");
         }
 
         // GET: Book 
 
-        [Route("Public/Index/{catname?}")]
+        [Route("Public/c/{catname?}")]
         public ActionResult Index(int? page, string catname = "")
         {
 
@@ -67,7 +67,7 @@ namespace Polls.Controllers
         }
 
 
-        [Route("Public/{username}")]
+        [Route("Public/u/{username}")]
         public ActionResult UserName(int? page, string userId = "", string username = "")
         {
 
