@@ -15,14 +15,15 @@ namespace Polls.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
+
+       
         [HttpGet]
         public ActionResult Index()
         {
 
-            return View();
+            return View();// Redirect("Index");
         }
-        [HttpPost]
+        [HttpPost]    
         public ActionResult Index(Login login)
         {
             login.deviceId = Guid.NewGuid().ToString();// "d4bc2ea4-1868-469b-a6c3-0f518e4f0218";
@@ -62,7 +63,7 @@ namespace Polls.Controllers
 
             return View();
         }
-
+      
         public ActionResult LogOff()
         {
             Session.Abandon();

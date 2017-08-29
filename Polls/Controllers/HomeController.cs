@@ -10,18 +10,14 @@ using System.Web.Mvc;
 
 namespace Polls.Controllers
 {
-    [CheckSession]   
-  
-   
-    [RoutePrefix("Home")]
-    public class HomeController : Controller
+    [CheckSession]    
+       public class HomeController : Controller
     {
         public ActionResult Index()
         {
             return RedirectToAction("Index", new { catname = "All" });
-        }
-
-        [Route("~/Home/{catname?}/Index")]
+        }  
+        [Route("Home/Index/{catname}")] 
         public ActionResult Index(int? page, string catname = "",string username="")
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
@@ -90,8 +86,7 @@ namespace Polls.Controllers
             return View(); // modify as per your need
         }
 
-        [Route("~/Home/GetPollResult")]
-        public ActionResult GetPollResult(string pollId)
+            public ActionResult GetPollResult(string pollId)
         {
            
             PollResultViewModel pollResultviewModel = new PollResultViewModel();
@@ -146,7 +141,7 @@ namespace Polls.Controllers
         }
 
 
-        [Route("MyPolls")]
+    
         public ActionResult MyPolls(int? page, string catname = "", string username = "")
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];

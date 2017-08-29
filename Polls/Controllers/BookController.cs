@@ -11,17 +11,25 @@ using System.Web.Mvc;
 namespace Polls.Controllers
 {
 
-    
-      [Route(Name ="Public")]
+
+
+   // [Route(Name ="Public")]
+   // [RoutePrefix("Public")]
+    //  [Route("{action=index}")] //Specifies the Index action as default for this route prefix
     public class BookController : Controller
     {
-        public ActionResult Index()
+        
+      
+        [Route("")]
+        [Route("Public")]
+        public ActionResult PublicIndex()
         {
-            return RedirectToAction("Index", new { catname = "Public" });
+            return Redirect("Public/Index/catname=All");
         }
 
-        // GET: Book
-        [Route("~/{catname}/Index")]
+        // GET: Book 
+
+        [Route("Public/Index/{catname?}")]
         public ActionResult Index(int? page, string catname = "")
         {
 
@@ -49,7 +57,7 @@ namespace Polls.Controllers
 
             if (response.StatusCode.ToString() == "OK")
             {
-                if (!string.IsNullOrEmpty(catname) && catname != "Public")
+                if (!string.IsNullOrEmpty(catname) && catname != "All")
                     pools = response.Data.Where(x => x.mainCatName.ToLower() == catname.ToLower()).ToList();
                 else
                     pools = response.Data.ToList();
@@ -58,8 +66,8 @@ namespace Polls.Controllers
             return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
 
-      
-        [Route("~/Public/{username}")]
+
+        [Route("Public/{username}")]
         public ActionResult UserName(int? page, string userId = "", string username = "")
         {
 
@@ -97,7 +105,7 @@ namespace Polls.Controllers
         }
 
 
-        [Route("~/Public/GetPollResult")]
+        [Route("Public/GetPollResult/{pollId}")]
         public ActionResult GetPollResult(string pollId)
         {
 
@@ -141,7 +149,7 @@ namespace Polls.Controllers
             }
             return View(); // modify as per your need
         }
-        [Route("~/Public/Viewprofile")]
+        [Route("Public/Viewprofile/{userId}")]
         public ActionResult Viewprofile(string userId)
         {
             if (userId == "")
