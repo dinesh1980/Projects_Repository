@@ -22,6 +22,7 @@ namespace Polls.Models
         public object secondOption { get; set; }
         public string firstImagePath { get; set; }
         public string secondImagePath { get; set; }
+        
         public string userName { get; set; }
         public int maxAssignments { get; set; }
         public bool isPublic { get; set; }

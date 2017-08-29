@@ -57,7 +57,7 @@ namespace Polls.Controllers
 
             if (response.StatusCode.ToString() == "OK")
             {
-                if (!string.IsNullOrEmpty(catname) && catname != "All")
+                if (!string.IsNullOrEmpty(catname) && catname != "All" && catname != "catname=All")
                     pools = response.Data.Where(x => x.mainCatName.ToLower() == catname.ToLower()).ToList();
                 else
                     pools = response.Data.ToList();
