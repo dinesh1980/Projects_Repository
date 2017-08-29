@@ -105,7 +105,7 @@ namespace Polls.Controllers
         }
 
 
-        [Route("Public/GetPollResult/{pollId}")]
+        [Route("Public/GetPollResult")]
         public ActionResult GetPollResult(string pollId)
         {
 
