@@ -72,14 +72,7 @@ namespace Polls.Controllers
         public ActionResult UserName(int? page, string userId = "", string username = "")
         {
             ViewBag.UserName = username;
-            GetMyPollsModel pollsparameter = new GetMyPollsModel();
-            pollsparameter.pageSize = 20;
-            pollsparameter.pageNumber = (page ?? 1);
-            var client = new RestClient(Common.Common.ApirUrl + "PublicPoll/GetPublic");
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("content-type", "application/json");
-            request.AddJsonBody(pollsparameter);
-            IRestResponse<List<MyPolls>> response = client.Execute<List<MyPolls>>(request);
+            var response = GetPublicPolls(page);
             List<MyPolls> pools = null;
             var client_Categories = new RestClient(Common.Common.ApirUrl + "Polls/GetCategories");
             var request_Categories = new RestRequest(Method.GET);
@@ -93,16 +86,34 @@ namespace Polls.Controllers
             {
                 ViewBag.Categories = null;
             }
-
-            if (response.StatusCode.ToString() == "OK")
-            {
+            
                 if (!string.IsNullOrEmpty(userId))
-                    pools = response.Data.Where(x => x.userId.ToLower() == userId.ToLower()).ToList();
+                    pools = response.Where(x => x.userId.ToLower() == userId.ToLower()).ToList();
                 else
-                    pools = response.Data.ToList();
-            }
+                    pools = response.ToList();
+           
 
-            return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
+            return View(pools.ToPagedList(page ?? 1, 20));
+        }
+
+        private List<MyPolls> GetPublicPolls(int? page)
+        {
+            GetMyPollsModel pollsparameter = new GetMyPollsModel();
+            if (page != 0)
+            {
+                pollsparameter.pageSize = 20;
+                pollsparameter.pageNumber = (page ?? 1);
+            }
+            
+            var client = new RestClient(Common.Common.ApirUrl + "PublicPoll/GetPublic");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("content-type", "application/json");
+            request.AddJsonBody(pollsparameter);
+            IRestResponse<List<MyPolls>> response = client.Execute<List<MyPolls>>(request);
+            if (response.StatusCode.ToString() == "OK")
+                return response.Data;
+            else
+                return new List<MyPolls>();
         }
 
 
@@ -175,8 +186,10 @@ namespace Polls.Controllers
                 profile = JsonConvert.DeserializeObject<ViewPublicProfileResponse>(response.Content);
 
             }
-
-            return View(profile);
+            PublicViewProfileViewModel viewmodel = new PublicViewProfileViewModel();
+            viewmodel.MyPolls = GetPublicPolls(0);
+            viewmodel.PublicProfileResponse = profile;
+            return View(viewmodel);
 
         }
     }

@@ -165,7 +165,7 @@
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
 
-                                    @Html.TextBoxFor(model => model.newProfileContact.firstName, new { @class = "form-control" })
+                                    @Html.DisplayFor(model => model.newProfileContact.firstName, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.newProfileContact.firstName)
                                     @Html.HiddenFor(model => model.newProfileContact.countryCode)
                                     @Html.HiddenFor(model => model.newProfileContact.userId)
@@ -185,8 +185,8 @@
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
 
-                                    @Html.TextBoxFor(model => model.newProfileContact.lastName, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.lastName)
+                                    @Html.DisplayFor(model => model.newProfileContact.lastName, new { @class = "form-control" })
+                                    
                                 </div>
                             </div>
                         </div>
@@ -227,8 +227,8 @@
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
 
-                                    @Html.TextAreaFor(model => model.newProfileContact.addressLine1, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.addressLine1)
+                                    @Html.DisplayFor(model => model.newProfileContact.addressLine1, new { @class = "form-control" })
+                                    
                                 </div>
                             </div>
                         </div>
@@ -236,8 +236,8 @@
                             <label class="col-md-4 control-label" for="user_email">City</label>
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
-                                    @Html.TextBoxFor(model => model.newProfileContact.addressCity, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.addressCity)
+                                    @Html.DisplayFor(model => model.newProfileContact.addressCity, new { @class = "form-control" })
+                                    
                                 </div>
                             </div>
                         </div>
@@ -245,8 +245,8 @@
                             <label class="col-md-4 control-label" for="user_email">State</label>
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
-                                    @Html.TextBoxFor(model => model.newProfileContact.addressState, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.addressState)
+                                    @Html.DisplayFor(model => model.newProfileContact.addressState, new { @class = "form-control" })
+                                    
                                 </div>
                             </div>
                         </div>
@@ -255,8 +255,8 @@
                             <label class="col-md-4 control-label" for="user_email">Country</label>
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
-                                    @Html.TextBoxFor(model => model.newProfileContact.addressCountry, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.addressCountry)
+                                    @Html.DisplayFor(model => model.newProfileContact.addressCountry, new { @class = "form-control" })
+                                    
                                 </div>
                             </div>
                         </div>
@@ -264,8 +264,8 @@
                             <label class="col-md-4 control-label" for="user_email">Zip</label>
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
-                                    @Html.TextBoxFor(model => model.newProfileContact.addressZip, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.newProfileContact.addressZip)
+                                    @Html.DisplayFor(model => model.newProfileContact.addressZip, new { @class = "form-control" })
+                                    
                                 </div>
                             </div>
                         </div>
@@ -275,12 +275,12 @@
                             <label class="col-md-4 control-label" for="user_email">Birth Date</label>
                             <div class="col-md-8 inputGroupContainer">
                                 <div class='input-group date' id='datetimepicker111'>
-                                    @Html.TextBoxFor(model => model.newProfileContact.birthDate, new { @class = "form-control" })
-                                    <span class="input-group-addon">
+                                    @Html.DisplayFor(model => model.newProfileContact.birthDate, new { @class = "form-control" })
+                                    @*<span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
+                                    </span>*@
                                 </div>
-                                @Html.ValidationMessageFor(model => model.newProfileContact.birthDate)
+                                
                             </div>
                         </div>
 
@@ -302,8 +302,8 @@
                                 <label class="col-md-4 control-label" for="user_email">Phone</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
-                                        @Html.TextBoxFor(model => model.newProfileContact.phoneNumber, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.newProfileContact.phoneNumber)
+                                        @Html.DisplayFor(model => model.newProfileContact.phoneNumber, new { @class = "form-control" })
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -315,8 +315,8 @@
                                 <label class="col-md-4 control-label" for="user_email">PayPal Email</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
-                                        @Html.TextBoxFor(model => model.newProfileContact.payPalEmail, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.newProfileContact.payPalEmail)
+                                        @Html.DisplayFor(model => model.newProfileContact.payPalEmail, new { @class = "form-control" })
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -330,7 +330,41 @@
                             </div>
                         </div>
 
-
+                        if (Model.newProfileContact.isPublicProfile)
+                        {
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">Public Polls</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DisplayFor(model => model.newProfileContact.publicPolls, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">Business Polls</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DisplayFor(model => model.newProfileContact.businessPolls, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">Private Polls</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DisplayFor(model => model.newProfileContact.privatePolls, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">Total Polls</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DisplayFor(model => model.newProfileContact.totalPolls, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        }
                     }
                 </section>
 

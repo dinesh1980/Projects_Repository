@@ -6,9 +6,9 @@
 <h2>Login</h2>
 @*<script src="~/scripts/Browser_DeviceDetail.js"></script>*@
 
-@using (@Html.BeginForm("Index", "Login", FormMethod.Post))
-{
-    @Html.ValidationSummary();
+@using (@Html.BeginForm("Index", "Login", FormMethod.Post, new { catname = "All" }))
+            {
+                @Html.ValidationSummary();
 
     <div class="form-group">
         <label for="email">Username:</label>
@@ -22,7 +22,7 @@
         <label><input type="checkbox"> Remember me</label>
     </div>
     <input type="submit" id="btnSubmit" class="btn btn-default" value="Submit" />
-   
+
     @*<script>
         $(document).ready(function () {
             $('#btnSubmit').click(function () {

@@ -10,15 +10,17 @@ using System.Web.Mvc;
 
 namespace Polls.Controllers
 {
-    [CheckSession]    
-       public class HomeController : Controller
+    [CheckSession]
+    public class HomeController : Controller
     {
-        public ActionResult Index()
+        [HttpGet]
+                public ActionResult Index()
         {
             return RedirectToAction("Index", new { catname = "All" });
-        }  
-        [Route("Home/Index/{catname}")] 
-        public ActionResult Index(int? page, string catname = "",string username="")
+        }
+
+        [Route("Home/Index/{catname}")]
+        public ActionResult Index(int? page, string catname = "", string username = "")
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
             GetMyPollsModel pollsparameter = new GetMyPollsModel();
@@ -49,7 +51,7 @@ namespace Polls.Controllers
 
             if (response.StatusCode.ToString() == "OK")
             {
-                if (!string.IsNullOrEmpty(catname) && catname!="All")
+                if (!string.IsNullOrEmpty(catname) && catname != "All")
                     pools = response.Data.Where(x => x.mainCatName.ToLower() == catname.ToLower()).ToList();
                 else
                     pools = response.Data.ToList();
@@ -86,9 +88,9 @@ namespace Polls.Controllers
             return View(); // modify as per your need
         }
 
-            public ActionResult GetPollResult(string pollId)
+        public ActionResult GetPollResult(string pollId)
         {
-           
+
             PollResultViewModel pollResultviewModel = new PollResultViewModel();
             if (pollId == null)
             {
@@ -118,7 +120,7 @@ namespace Polls.Controllers
             if (response_poll.StatusCode.ToString() == "OK" && response_poll.Data != null)
             {
                 // pollResultviewModel.myPolls = response_poll.Data;
-                 var pollresult = response_poll.Data.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
+                var pollresult = response_poll.Data.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
                 if (pollresult != null)
                 {
                     string FirstImage = pollresult.firstImagePath;
@@ -129,7 +131,7 @@ namespace Polls.Controllers
                     pollresult.secondImagePathfull = Common.Common.FullImageBaseUrl + secondImage;
                     pollResultviewModel.myPolls = pollresult;
                 }
-               
+
                 //  ViewBag.Question = pollresult.question;
                 //  ViewBag.responseCompleted = pollresult.responseCompleted;
                 //  return View(response.Data.OrderBy(m => m.choice).ToList()); // modify as per your need
@@ -143,7 +145,7 @@ namespace Polls.Controllers
         }
 
 
-    
+
         public ActionResult MyPolls(int? page, string catname = "", string username = "")
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
@@ -157,7 +159,7 @@ namespace Polls.Controllers
             request.AddHeader("content-type", "application/json");
             request.AddJsonBody(pollsparameter);
             IRestResponse<List<MyPolls>> response = client.Execute<List<MyPolls>>(request);
-            List<MyPolls> pools = null;            
+            List<MyPolls> pools = null;
             if (response.StatusCode.ToString() == "OK")
             {
                 if (!string.IsNullOrEmpty(catname))
