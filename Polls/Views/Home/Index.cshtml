@@ -12,10 +12,10 @@
             <h2 class='card-title'>
                 Recently Completed Polls
             </h2>
-            <ul class="nav nav-pills nav-outlined nav-centered">
+            <ul class="nav nav-pills nav-outlined nav-centered" style="margin-bottom:10px">
                 @foreach (var item in ViewBag.Categories)
                 {
-                    <li class="nav-item">
+                    <li class="nav-item borderclass">
                         @Html.ActionLink((string)item.catName, "Index", new { catname = item.catName }, new { @class = "nav-link" })
                     </li>
 
@@ -42,7 +42,7 @@
                  
                     <a href="/Home/GetPollResult?pollId=@item.pollId">@item.question ?</a>
                     <div class="pull-right" style="padding-right:15px">
-                        <a href="/Profile/ViewProfile?userId=@item.userId">@item.userName </a>
+                        <i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;<a href="/Profile/ViewProfile?userId=@item.userId">@item.userName </a>
                     </div>
                 </li>
             }

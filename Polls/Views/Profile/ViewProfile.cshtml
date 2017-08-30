@@ -76,52 +76,52 @@
 </style>
 
 <script type="text/javascript">
-    $(function () {
-        var bindDatePicker = function () {
-            $(".date").datetimepicker({
-                format: 'YYYY-MM-DD',
-                icons: {
-                    time: "fa fa-clock-o",
-                    date: "fa fa-calendar",
-                    up: "fa fa-arrow-up",
-                    down: "fa fa-arrow-down"
-                }
-            }).find('input:first').on("blur", function () {
-                // check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
-                // update the format if it's yyyy-mm-dd
-                var date = parseDate($(this).val());
+    //$(function () {
+    //    var bindDatePicker = function () {
+    //        $(".date").datetimepicker({
+    //            format: 'YYYY-MM-DD',
+    //            icons: {
+    //                time: "fa fa-clock-o",
+    //                date: "fa fa-calendar",
+    //                up: "fa fa-arrow-up",
+    //                down: "fa fa-arrow-down"
+    //            }
+    //        }).find('input:first').on("blur", function () {
+    //            // check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+    //            // update the format if it's yyyy-mm-dd
+    //            var date = parseDate($(this).val());
 
-                if (!isValidDate(date)) {
-                    //create date based on momentjs (we have that)
-                    date = moment().format('YYYY-MM-DD');
-                }
+    //            if (!isValidDate(date)) {
+    //                //create date based on momentjs (we have that)
+    //                date = moment().format('YYYY-MM-DD');
+    //            }
 
-                $(this).val(date);
-            });
-        }
+    //            $(this).val(date);
+    //        });
+    //    }
 
-        var isValidDate = function (value, format) {
-            format = format || false;
-            // lets parse the date to the best of our knowledge
-            if (format) {
-                value = parseDate(value);
-            }
+    //    var isValidDate = function (value, format) {
+    //        format = format || false;
+    //        // lets parse the date to the best of our knowledge
+    //        if (format) {
+    //            value = parseDate(value);
+    //        }
 
-            var timestamp = Date.parse(value);
+    //        var timestamp = Date.parse(value);
 
-            return isNaN(timestamp) == false;
-        }
+    //        return isNaN(timestamp) == false;
+    //    }
 
-        var parseDate = function (value) {
-            var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
-            if (m)
-                value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+    //    var parseDate = function (value) {
+    //        var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+    //        if (m)
+    //            value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
 
-            return value;
-        }
+    //        return value;
+    //    }
 
-        bindDatePicker();
-    });
+    //    bindDatePicker();
+    //});
 </script>
 <section class="normal section-list">
     <br />
@@ -138,7 +138,7 @@
             <div class="col-sm-8 col-sm-offset-2">
 
                 <section class="card card-block">
-                    <h1 class="card-title">View Profile Settings</h1><br />
+                    <h1 class="card-title">View Profile</h1><br />
                     @using (@Html.BeginForm("ViewProfile", "Profile", FormMethod.Post, new { @class = "form-horizontal" }))
                     {
                         <div style="margin:0;padding:0;display:inline"></div>
@@ -149,7 +149,7 @@
                                 <div class="input-group">
                                     <div class="thumbnails">
                                         <ul class="clearfix">
-                                            <li>
+                                            <li style="border: 5px solid #cacaca;">
                                                 <a href="@Model.newProfileContact.pictureUrl.Replace("Thumbnail", "Full")">
                                                     <img src="@Model.newProfileContact.pictureUrl" alt="">
                                                 </a>
