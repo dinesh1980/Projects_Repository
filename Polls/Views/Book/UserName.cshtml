@@ -9,9 +9,17 @@
 <section id="public-questions" class="container">
     <div class='card list-group-card'>
         <div class='card-block'>
-            <h2 class='card-title'>
-                Polls
-            </h2>
+            @if (ViewBag.UserName == null)
+            {
+                <h2 class='card-title'>Polls</h2>
+
+            }
+            else
+            {
+                <h2 class='card-title'>   Polls-Created by:@Convert.ToString(@ViewBag.UserName)</h2>
+
+            }
+
             <ul class="nav nav-pills nav-outlined nav-centered">
                 @foreach (var item in ViewBag.Categories)
                 {
@@ -38,11 +46,11 @@
                             }
                         </span>
                     </div>
-                    <a href='@Url.Action("GetPollResult", "Public", new { pollId = @item.pollId})'>@item.question ?</a>  
-                    <div class="pull-right" style="padding-right:15px">                      
-                        @Html.ActionLink(item.userName,"UserName", new { userId = @item.userId, username = @item.userName }, new { @class = "nav-link" })
+                    <a href='@Url.Action("GetPollResult", "Public", new { pollId = @item.pollId})'>@item.question ?</a>
+                    <div class="pull-right" style="padding-right:15px">
+                        @Html.ActionLink(item.userName, "UserName", new { userId = @item.userId, username = @item.userName }, new { @class = "nav-link" })
                     </div>
-                    <div class="pull-right" style="padding-right:15px">                       
+                    <div class="pull-right" style="padding-right:15px">
                         @Html.ActionLink("View Profile", "Viewprofile", new { userId = @item.userId }, new { @class = "nav-link" })
                     </div>
                 </li>

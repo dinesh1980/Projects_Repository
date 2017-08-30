@@ -24,7 +24,8 @@ namespace Polls.Controllers
         [Route("Public")]
         public ActionResult PublicIndex()
         {
-            return Redirect("Public/c/catname=All");
+             return Redirect("~/Public/c/catname=All");
+            
         }
 
         // GET: Book 
@@ -70,7 +71,7 @@ namespace Polls.Controllers
         [Route("Public/u/{username}")]
         public ActionResult UserName(int? page, string userId = "", string username = "")
         {
-
+            ViewBag.UserName = username;
             GetMyPollsModel pollsparameter = new GetMyPollsModel();
             pollsparameter.pageSize = 20;
             pollsparameter.pageNumber = (page ?? 1);
@@ -112,7 +113,8 @@ namespace Polls.Controllers
             PollResultViewModel pollResultviewModel = new PollResultViewModel();
             if (pollId == null)
             {
-                return RedirectToAction("Index", "Book");
+                // return RedirectToAction("Index", "Book");
+                return Redirect("~/Public");
             }
             var client = new RestClient(Common.Common.ApirUrl + "PublicPoll/GetPollResult");
             GetPollRequest requestbody = new GetPollRequest();

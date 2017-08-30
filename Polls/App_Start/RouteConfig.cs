@@ -21,7 +21,7 @@ namespace Polls
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Public", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Public", action = "PublicIndex", id = UrlParameter.Optional }
             );
         }
     }
