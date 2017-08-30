@@ -54,7 +54,7 @@ namespace Polls.Controllers
                 Session["UserDetails"] = response.Data;
                 Session["username"] = response.Data.displayName;
                 LoggedInUserDetails.Username = response.Data.displayName;
-                return RedirectToAction("Index", "Home");
+                return RedirectToRoute("UserHome", new { catname = "All"});
             }
             else {
                 ModelState.AddModelError(string.Empty, "Invalid Username/Password !!");

@@ -19,7 +19,7 @@ namespace Polls.Controllers
             return RedirectToAction("Index", new { catname = "All" });
         }
 
-        [Route("Home/Index/{catname}")]
+        [Route("Home/Index/{catname}",Name ="UserHome")]
         public ActionResult Index(int? page, string catname = "", string username = "")
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
