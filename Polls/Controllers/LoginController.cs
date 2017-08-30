@@ -69,7 +69,7 @@ namespace Polls.Controllers
             Session.Abandon();
             Session.Clear();
             Session["UserDetails"] = null;
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Login");
         }
 
     }
