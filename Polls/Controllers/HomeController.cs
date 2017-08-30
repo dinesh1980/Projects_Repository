@@ -121,10 +121,12 @@ namespace Polls.Controllers
                  var pollresult = response_poll.Data.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
                 if (pollresult != null)
                 {
+                    string FirstImage = pollresult.firstImagePath;
+                    string secondImage = pollresult.secondImagePath;
                     pollresult.firstImagePath = Common.Common.ThumbnailBaseUrl + Convert.ToString(pollresult.firstImagePath);
                     pollresult.secondImagePath = Common.Common.ThumbnailBaseUrl + Convert.ToString(pollresult.secondImagePath);
-                    pollresult.firstImagePathFull = Common.Common.FullImageBaseUrl + pollresult.firstImagePath;
-                    pollresult.secondImagePathfull = Common.Common.FullImageBaseUrl + pollresult.secondImagePath;
+                    pollresult.firstImagePathFull = Common.Common.FullImageBaseUrl + FirstImage;
+                    pollresult.secondImagePathfull = Common.Common.FullImageBaseUrl + secondImage;
                     pollResultviewModel.myPolls = pollresult;
                 }
                
