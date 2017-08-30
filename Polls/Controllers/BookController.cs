@@ -136,10 +136,12 @@ namespace Polls.Controllers
             {
                 // pollResultviewModel.myPolls = response_poll.Data;
                 var pollresult = response_poll.Data.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
+                var image = pollresult.firstImagePath;
+                var secimage = pollresult.secondImagePath;
                 pollresult.firstImagePath = Common.Common.ThumbnailBaseUrl + pollresult.firstImagePath;
                 pollresult.secondImagePath = Common.Common.ThumbnailBaseUrl + pollresult.secondImagePath;
-                pollresult.firstImagePathFull = Common.Common.FullImageBaseUrl + pollresult.firstImagePath;
-                pollresult.secondImagePathfull = Common.Common.FullImageBaseUrl + pollresult.secondImagePath;
+                pollresult.firstImagePathFull = Common.Common.FullImageBaseUrl + image;
+                pollresult.secondImagePathfull = Common.Common.FullImageBaseUrl + secimage;
                 pollResultviewModel.myPolls = pollresult;
                 return View(pollResultviewModel);
             }
