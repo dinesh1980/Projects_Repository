@@ -188,7 +188,7 @@ namespace Polls.Controllers
 
             }
             PublicViewProfileViewModel viewmodel = new PublicViewProfileViewModel();
-            viewmodel.MyPolls = GetPublicPolls(0);
+            viewmodel.MyPolls = GetPublicPolls(0).Take(5).ToList();
             viewmodel.PublicProfileResponse = profile;
             return View(viewmodel);
 
