@@ -24,13 +24,14 @@ namespace Polls.Controllers
         [Route("Public")]
         public ActionResult PublicIndex()
         {
-             return Redirect("~/Public/c/catname=All");
-            
-        }
+            // return Redirect("~/Public/c/catname=All");
+            return RedirectToRoute("PublicDefaultPage", new { catname = "All" });
+
+            }
 
         // GET: Book 
 
-        [Route("Public/c/{catname?}")]
+        [Route("Public/c/{catname?}", Name = "PublicDefaultPage")]
         public ActionResult Index(int? page, string catname = "")
         {
 

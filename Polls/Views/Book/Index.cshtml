@@ -13,14 +13,17 @@
                 Polls
             </h2>
             <ul class="nav nav-pills nav-outlined nav-centered " style="margin-bottom:10px">
-                    @foreach (var item in ViewBag.Categories)
-                    {
-                        <li class="nav-item borderclass">
-                            @Html.ActionLink((string)item.catName, "Index", new { catname = item.catName }, new { @class = "nav-link" })
-                        </li>
-                    }
+                <li class="nav-item borderclass">
+                    @Html.ActionLink("All Polls", "Index", new { catname = "All" }, new { @class = "nav-link" })
+                </li>
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <li class="nav-item borderclass">
+                        @Html.ActionLink((string)item.catName, "Index", new { catname = item.catName }, new { @class = "nav-link" })
+                    </li>
+                }
 
-                </ul>
+            </ul>
         </div>
         <ul class='list-group-flush list-group' id="example">
             @foreach (var item in Model)
@@ -38,15 +41,15 @@
                             }
                         </span>
                     </div>
-                    <a href='@Url.Action("GetPollResult", "Public", new { pollId = @item.pollId})'>@item.question ?</a>                
+                    <a href='@Url.Action("GetPollResult", "Public", new { pollId = @item.pollId})'>@item.question ?</a>
 
-                    <div class="pull-right" style="padding-right:15px">                   
+                    <div class="pull-right" style="padding-right:15px">
                         <i class="fa fa-user" aria-hidden="true"></i>&nbsp;@Html.ActionLink(item.userName, "UserName", new { userId = @item.userId, username = @item.userName }, new { @class = "nav-link" })
                     </div>
-                    <div class="pull-right" style="padding-right:15px">                      
+                    <div class="pull-right" style="padding-right:15px">
                         <i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;@Html.ActionLink("View Profile", "Viewprofile", new { userId = @item.userId }, new { @class = "nav-link" })
                     </div>
-                 
+
                 </li>
             }
 
