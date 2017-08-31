@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "View Profile";
 }
-
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 <style>
     section.section-list {
         padding-bottom: 2rem;
@@ -64,7 +64,7 @@
 
     .jquery-lightbox {
         top: 20px !important;
-        width:100%;
+        width: 100%;
     }
 
     img {
@@ -393,36 +393,48 @@
                         </div>
                         if (Model.PublicProfileResponse.isPublicProfile)
                         {
-                        <div class="form-group">
-                            <div class="col-md-12 inputGroupContainer">
-                                <ul class='list-group-flush list-group' id="example">
-                                    @foreach (var item in Model.MyPolls)
-                                    {
-                                        <li class='list-group-item'>
-                                            <div class='pull-right'>
-                                                @*@Html.ActionLink(item.userName, "UserName", new { userId = @item.userId, username = @item.userName }, new { @class = "nav-link" })*@
-                                                <span class="poll-audience" style="">
-                                                    <i class="fa fa-group fa-fw"></i> <span class='label label-default'>@item.responseCompleted Respondents</span>
-                                                    @foreach (var items in item.filtersJson.Split(','))
-                                                    {
-                                                        if (Convert.ToString(items.Split(':')[0]).Replace('"', ' ').Trim().ToLower() == "filtervalue")
+                            <div class="form-group">
+                                <div class="col-md-12 inputGroupContainer">
+                                    <ul class='list-group-flush list-group' id="example">
+                                        @foreach (var item in Model.MyPolls)
+                                        {
+                                            <li class='list-group-item'>
+                                                <div class='pull-right'>
+                                                    @*@Html.ActionLink(item.userName, "UserName", new { userId = @item.userId, username = @item.userName }, new { @class = "nav-link" })*@
+                                                    <span class="poll-audience" style="">
+                                                        <i class="fa fa-group fa-fw"></i> <span class='label label-default'>@item.responseCompleted Respondents</span>
+                                                        @foreach (var items in item.filtersJson.Split(','))
                                                         {
-                                                            <span class="label label-success" style="margin-right: 10px;">@Convert.ToString(items.Split(':')[1]).Replace('"', ' ').Replace('}', ' ').Replace(']', ' ').Trim() </span>
+                                                            if (Convert.ToString(items.Split(':')[0]).Replace('"', ' ').Trim().ToLower() == "filtervalue")
+                                                            {
+                                                                <span class="label label-success" style="margin-right: 10px;">@Convert.ToString(items.Split(':')[1]).Replace('"', ' ').Replace('}', ' ').Replace(']', ' ').Trim() </span>
+                                                            }
                                                         }
-                                                    }
-                                                </span>
-                                               
-                                            </div>
-                                            <a href='@Url.Action("GetPollResult", "Public", new { pollId = @item.pollId })'>@item.question ?</a>
+                                                    </span>
 
-                                           
-                                           
-                                        </li>
+                                                </div>
+                                                <a href='@Url.Action("GetPollResult", "Public", new { pollId = @item.pollId })'>@item.question ?</a>
+
+
+
+                                            </li>
+                                        }
+
+                                    </ul>
+                                    @if(Convert.ToInt32(ViewBag.count) > 5)
+                                    {
+                                        <div class='card-block'>
+                                            <ul class="nav nav-pills nav-outlined nav-centered" style="margin-bottom:10px">
+                                                <li class="nav-item borderclass">
+                                                    <div class="pull-right" style="padding-right:15px">
+                                                        &nbsp;@Html.ActionLink("View All", "UserName", new { userId = Model.PublicProfileResponse.userId, username = Model.PublicProfileResponse.firstName }, new { @class = "nav-link" })
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     }
-
-                                </ul>
+                                </div>
                             </div>
-                        </div>
                         }
                     }
                 </section>
