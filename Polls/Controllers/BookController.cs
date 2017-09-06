@@ -45,7 +45,7 @@ namespace Polls.Controllers
             IRestResponse<List<MyPolls>> response = client.Execute<List<MyPolls>>(request);
             List<MyPolls> pools = null;
             var client_Categories = new RestClient(Common.Common.ApirUrl + "Polls/GetCategories");
-            var request_Categories = new RestRequest(Method.GET);
+            var request_Categories = new RestRequest(Method.POST);
             request_Categories.AddHeader("content-type", "application/json");
             IRestResponse<List<GetCategoriesResponse>> response_Categories = client_Categories.Execute<List<GetCategoriesResponse>>(request_Categories);
             if (response_Categories.StatusCode.ToString() == "OK" && response_Categories.Data != null)
@@ -76,7 +76,7 @@ namespace Polls.Controllers
             var response = GetPublicPolls(page);
             List<MyPolls> pools = null;
             var client_Categories = new RestClient(Common.Common.ApirUrl + "Polls/GetCategories");
-            var request_Categories = new RestRequest(Method.GET);
+            var request_Categories = new RestRequest(Method.POST);
             request_Categories.AddHeader("content-type", "application/json");
             IRestResponse<List<GetCategoriesResponse>> response_Categories = client_Categories.Execute<List<GetCategoriesResponse>>(request_Categories);
             if (response_Categories.StatusCode.ToString() == "OK" && response_Categories.Data != null)

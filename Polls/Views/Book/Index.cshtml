@@ -16,13 +16,15 @@
                 <li class="nav-item borderclass">
                     @Html.ActionLink("All Polls", "Index", new { catname = "All" }, new { @class = "nav-link" })
                 </li>
-                @foreach (var item in ViewBag.Categories)
+                @if (ViewBag.Categories != null)
                 {
-                    <li class="nav-item borderclass">
-                        @Html.ActionLink((string)item.catName, "Index", new { catname = item.catName }, new { @class = "nav-link" })
-                    </li>
+                    foreach (var item in ViewBag.Categories)
+                    {
+                        <li class="nav-item borderclass">
+                            @Html.ActionLink((string)item.catName, "Index", new { catname = item.catName }, new { @class = "nav-link" })
+                        </li>
+                    }
                 }
-
             </ul>
         </div>
         <ul class='list-group-flush list-group' id="example">

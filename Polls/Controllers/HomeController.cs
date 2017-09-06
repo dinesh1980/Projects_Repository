@@ -35,7 +35,7 @@ namespace Polls.Controllers
             IRestResponse<List<MyPolls>> response = client.Execute<List<MyPolls>>(request);
             List<MyPolls> pools = null;
             var client_Categories = new RestClient(Common.Common.ApirUrl + "Polls/GetCategories");
-            var request_Categories = new RestRequest(Method.GET);
+            var request_Categories = new RestRequest(Method.POST);
             request_Categories.AddHeader("content-type", "application/json");
             request_Categories.AddHeader("userid", loginRespone.userId);
             request_Categories.AddHeader("token", loginRespone.token);
