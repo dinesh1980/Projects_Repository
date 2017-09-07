@@ -1,4 +1,5 @@
-﻿using PagedList;
+﻿using Newtonsoft.Json;
+using PagedList;
 using Polls.Filters;
 using Polls.Models;
 using RestSharp;
@@ -176,6 +177,30 @@ namespace Polls.Controllers
             return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
 
+
+        public ActionResult UserList(int? page)
+        {
+            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
+            GetMyPollsModel pollsparameter = new GetMyPollsModel();
+            pollsparameter.pageSize = 20;
+            pollsparameter.pageNumber = (page ?? 1);
+            var client = new RestClient(Common.Common.ApirUrl + "Polls/GetListPublicProfile");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("token", loginRespone.token);
+            request.AddHeader("userid", loginRespone.userId);
+            request.AddHeader("content-type", "application/json");
+            request.AddJsonBody(pollsparameter);
+            IRestResponse<List< ViewPublicProfileResponse>> response = client.Execute<List<ViewPublicProfileResponse>>(request);
+            List<ViewPublicProfileResponse> profile = null;       
+            if (response.StatusCode.ToString() == "OK")
+            {
+                
+                profile = JsonConvert.DeserializeObject<List<ViewPublicProfileResponse>>(response.Content);
+
+            }
+
+            return View(profile.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
+        }
     }
 
     public class getMyPolRequest
