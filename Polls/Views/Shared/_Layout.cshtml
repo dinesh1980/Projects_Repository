@@ -59,6 +59,7 @@
                 @if (Session["UserDetails"] != null)
                 {
                     <li role="presentation" style="padding:7px;" class="active"><a href="@Url.Action("MyPolls", "Home")">My Polls</a></li>
+                    <li role="presentation" style="padding:7px;" class="active"><a href="@Url.Action("PublicUser", "Home")">Public Users</a></li>
                 }
                 <li>
                     @if (Session["UserDetails"] != null)

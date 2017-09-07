@@ -15,12 +15,12 @@ namespace Polls.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-                public ActionResult Index()
+        public ActionResult Index()
         {
             return RedirectToAction("Index", new { catname = "All" });
         }
 
-        [Route("Home/Index/{catname}",Name ="UserHome")]
+        [Route("Home/Index/{catname}", Name = "UserHome")]
         public ActionResult Index(int? page, string catname = "", string username = "")
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
@@ -177,8 +177,8 @@ namespace Polls.Controllers
             return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
 
-
-        public ActionResult UserList(int? page)
+        [Route("Home/PublicUser", Name = "PublicUser")]
+        public ActionResult PublicUserList(int? page)
         {
             LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
             GetMyPollsModel pollsparameter = new GetMyPollsModel();
@@ -190,11 +190,11 @@ namespace Polls.Controllers
             request.AddHeader("userid", loginRespone.userId);
             request.AddHeader("content-type", "application/json");
             request.AddJsonBody(pollsparameter);
-            IRestResponse<List< ViewPublicProfileResponse>> response = client.Execute<List<ViewPublicProfileResponse>>(request);
-            List<ViewPublicProfileResponse> profile = null;       
+            IRestResponse<List<ViewPublicProfileResponse>> response = client.Execute<List<ViewPublicProfileResponse>>(request);
+            List<ViewPublicProfileResponse> profile = null;
             if (response.StatusCode.ToString() == "OK")
             {
-                
+
                 profile = JsonConvert.DeserializeObject<List<ViewPublicProfileResponse>>(response.Content);
 
             }
