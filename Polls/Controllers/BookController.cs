@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PagedList;
 using Polls.Models;
 using RestSharp;
@@ -13,13 +14,13 @@ namespace Polls.Controllers
 
 
 
-   // [Route(Name ="Public")]
-   // [RoutePrefix("Public")]
+    // [Route(Name ="Public")]
+    // [RoutePrefix("Public")]
     //  [Route("{action=index}")] //Specifies the Index action as default for this route prefix
     public class BookController : Controller
     {
-        
-      
+
+
         [Route("")]
         [Route("Public")]
         public ActionResult PublicIndex()
@@ -27,7 +28,7 @@ namespace Polls.Controllers
             // return Redirect("~/Public/c/catname=All");
             return RedirectToRoute("PublicDefaultPage", new { catname = "All" });
 
-            }
+        }
 
         // GET: Book 
 
@@ -87,12 +88,12 @@ namespace Polls.Controllers
             {
                 ViewBag.Categories = null;
             }
-            
-                if (!string.IsNullOrEmpty(userId))
-                    pools = response.Where(x => x.userId.ToLower() == userId.ToLower()).ToList();
-                else
-                    pools = response.ToList();
-           
+
+            if (!string.IsNullOrEmpty(userId))
+                pools = response.Where(x => x.userId.ToLower() == userId.ToLower()).ToList();
+            else
+                pools = response.ToList();
+
 
             return View(pools.ToPagedList(page ?? 1, 20));
         }
@@ -105,7 +106,7 @@ namespace Polls.Controllers
                 pollsparameter.pageSize = 20;
                 pollsparameter.pageNumber = (page ?? 1);
             }
-            
+
             var client = new RestClient(Common.Common.ApirUrl + "PublicPoll/GetPublic");
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
@@ -188,7 +189,7 @@ namespace Polls.Controllers
 
             }
             PublicViewProfileViewModel viewmodel = new PublicViewProfileViewModel();
-            var list_poll= GetPublicPolls(0);
+            var list_poll = GetPublicPolls(0);
             ViewBag.count = list_poll.Count();
             viewmodel.MyPolls = list_poll.Take(5).ToList();
             viewmodel.PublicProfileResponse = profile;
@@ -199,24 +200,45 @@ namespace Polls.Controllers
         [Route("Public/u/All", Name = "PublicUser")]
         public ActionResult PublicUserList(int? page)
         {
-           
+
             GetMyPollsModel pollsparameter = new GetMyPollsModel();
             pollsparameter.pageSize = 20;
             pollsparameter.pageNumber = (page ?? 1);
             var client = new RestClient(Common.Common.ApirUrl + "PublicPoll/ListPublicUsers");
             var request = new RestRequest(Method.POST);
-           
+
             request.AddHeader("content-type", "application/json");
             request.AddJsonBody(pollsparameter);
             IRestResponse<List<ViewPublicProfileResponse>> response = client.Execute<List<ViewPublicProfileResponse>>(request);
-            List<ViewPublicProfileResponse> profile = null;
+            List<ViewPublicProfileResponse> profile = new List<ViewPublicProfileResponse>();
+
             if (response.StatusCode.ToString() == "OK")
             {
-                profile = JsonConvert.DeserializeObject<List<ViewPublicProfileResponse>>(response.Content);
+                JObject jobject = JObject.Parse(response.Content);
+
+                var resultObjects = AllChildren(JObject.Parse(response.Content))
+                .First(c => c.Type == JTokenType.Array && c.Path.Contains(jobject.Path))
+                .Children<JObject>();
+                foreach (var obj in resultObjects)
+                    profile.Add(JsonConvert.DeserializeObject<ViewPublicProfileResponse>(obj.ToString()));
+                // profiles = JsonConvert.DeserializeObject<ViewPublicProfileResponse[]>(response.Content);
             }
 
             return View(profile.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
+        private static IEnumerable<JToken> AllChildren(JToken json)
+        {
+            foreach (var c in json.Children())
+            {
+                yield return c;
+                foreach (var cc in AllChildren(c))
+                {
+                    yield return cc;
+                }
+            }
+        }
+       
+
     }
 
 
