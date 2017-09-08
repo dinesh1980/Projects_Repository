@@ -177,30 +177,30 @@ namespace Polls.Controllers
             return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
 
-        [Route("Home/PublicUser", Name = "PublicUser")]
-        public ActionResult PublicUserList(int? page)
-        {
-            LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
-            GetMyPollsModel pollsparameter = new GetMyPollsModel();
-            pollsparameter.pageSize = 20;
-            pollsparameter.pageNumber = (page ?? 1);
-            var client = new RestClient(Common.Common.ApirUrl + "Polls/GetListPublicProfile");
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("token", loginRespone.token);
-            request.AddHeader("userid", loginRespone.userId);
-            request.AddHeader("content-type", "application/json");
-            request.AddJsonBody(pollsparameter);
-            IRestResponse<List<ViewPublicProfileResponse>> response = client.Execute<List<ViewPublicProfileResponse>>(request);
-            List<ViewPublicProfileResponse> profile = null;
-            if (response.StatusCode.ToString() == "OK")
-            {
+        //[Route("Home/PublicUser", Name = "PublicUser")]
+        //public ActionResult PublicUserList(int? page)
+        //{
+        //    LoginResponse loginRespone = (LoginResponse)Session["UserDetails"];
+        //    GetMyPollsModel pollsparameter = new GetMyPollsModel();
+        //    pollsparameter.pageSize = 20;
+        //    pollsparameter.pageNumber = (page ?? 1);
+        //    var client = new RestClient(Common.Common.ApirUrl + "Polls/GetListPublicProfile");
+        //    var request = new RestRequest(Method.POST);
+        //    request.AddHeader("token", loginRespone.token);
+        //    request.AddHeader("userid", loginRespone.userId);
+        //    request.AddHeader("content-type", "application/json");
+        //    request.AddJsonBody(pollsparameter);
+        //    IRestResponse<List<ViewPublicProfileResponse>> response = client.Execute<List<ViewPublicProfileResponse>>(request);
+        //    List<ViewPublicProfileResponse> profile = null;
+        //    if (response.StatusCode.ToString() == "OK")
+        //    {
 
-                profile = JsonConvert.DeserializeObject<List<ViewPublicProfileResponse>>(response.Content);
+        //        profile = JsonConvert.DeserializeObject<List<ViewPublicProfileResponse>>(response.Content);
 
-            }
+        //    }
 
-            return View(profile.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
-        }
+        //    return View(profile.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
+        //}
     }
 
     public class getMyPolRequest

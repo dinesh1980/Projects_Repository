@@ -195,6 +195,28 @@ namespace Polls.Controllers
             return View(viewmodel);
 
         }
+
+        [Route("Public/u/All", Name = "PublicUser")]
+        public ActionResult PublicUserList(int? page)
+        {
+           
+            GetMyPollsModel pollsparameter = new GetMyPollsModel();
+            pollsparameter.pageSize = 20;
+            pollsparameter.pageNumber = (page ?? 1);
+            var client = new RestClient(Common.Common.ApirUrl + "PublicPoll/ListPublicUsers");
+            var request = new RestRequest(Method.POST);
+           
+            request.AddHeader("content-type", "application/json");
+            request.AddJsonBody(pollsparameter);
+            IRestResponse<List<ViewPublicProfileResponse>> response = client.Execute<List<ViewPublicProfileResponse>>(request);
+            List<ViewPublicProfileResponse> profile = null;
+            if (response.StatusCode.ToString() == "OK")
+            {
+                profile = JsonConvert.DeserializeObject<List<ViewPublicProfileResponse>>(response.Content);
+            }
+
+            return View(profile.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
+        }
     }
 
 
