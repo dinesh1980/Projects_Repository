@@ -10,4 +10,6 @@ namespace Polls.Models
         public List<MyPolls> MyPolls { get; set; }
         public ViewPublicProfileResponse PublicProfileResponse { get; set; }
     }
+
+   
 }

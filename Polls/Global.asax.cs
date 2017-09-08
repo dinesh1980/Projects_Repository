@@ -17,10 +17,10 @@ namespace Polls
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Common.Common.ApirUrl = ConfigurationManager.AppSettings["ApiUrl"].ToString();
-            Common.Common.FullImageBaseUrl = ConfigurationManager.AppSettings["FullImageBaseUrl"].ToString();
-            Common.Common.ThumbnailBaseUrl = ConfigurationManager.AppSettings["ThumbnailImageBaseUrl"].ToString();
+             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Common.CommonUtility.ApirUrl = ConfigurationManager.AppSettings["ApiUrl"].ToString();
+            Common.CommonUtility.FullImageBaseUrl = ConfigurationManager.AppSettings["FullImageBaseUrl"].ToString();
+            Common.CommonUtility.ThumbnailBaseUrl = ConfigurationManager.AppSettings["ThumbnailImageBaseUrl"].ToString();
         }
     }
 }

@@ -44,8 +44,13 @@ namespace Polls.Models
         public string payPalEmail { get; set; }
 
         public Boolean isEmailPublic { get; set; } = false;
+
+
     }
 
-
+    public class ViewPublicProfileResponselist
+    {
+        public List<ViewPublicProfileResponse> item { get; set; }
+    }
 
 }
