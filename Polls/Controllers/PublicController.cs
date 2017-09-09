@@ -66,6 +66,7 @@ namespace Polls.Controllers
                 else
                     pools = response.Data.ToList();
             }
+            Session["PageUrl"] = "UserName";
 
             return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
@@ -95,17 +96,23 @@ namespace Polls.Controllers
             else
                 pools = response.ToList();
 
-
+            Session["PageUrl"] = "UserName";
+    
             return View(pools.ToPagedList(page ?? 1, 20));
         }
 
         private List<MyPolls> GetPublicPolls(int? page)
         {
             GetMyPollsModel pollsparameter = new GetMyPollsModel();
-            if (page != 0)
+            if (page == 0)
             {
                 pollsparameter.pageSize = 20;
+                pollsparameter.pageNumber = 1;
+            }
+            else {
+                pollsparameter.pageSize = 20;
                 pollsparameter.pageNumber = (page ?? 1);
+
             }
 
             var client = new RestClient(Common.CommonUtility.ApirUrl + "PublicPoll/GetPublic");
@@ -190,6 +197,7 @@ namespace Polls.Controllers
 
             }
             PublicViewProfileViewModel viewmodel = new PublicViewProfileViewModel();
+
             var list_poll = GetPublicPolls(0);
             ViewBag.count = list_poll.Count();
             viewmodel.MyPolls = list_poll.Take(5).ToList();
@@ -202,6 +210,7 @@ namespace Polls.Controllers
         public ActionResult PublicUserList(int? page)
         {
 
+            Session["PageUrl"] = "UserNameAll";
             GetMyPollsModel pollsparameter = new GetMyPollsModel();
             pollsparameter.pageSize = 20;
             pollsparameter.pageNumber = (page ?? 1);
@@ -229,6 +238,33 @@ namespace Polls.Controllers
             }
 
             return View(profiles.item.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
+        }
+
+        [Route("Public/PublicPolls", Name = "PublicPolls")]
+        public ActionResult PublicPolls(int? page) {
+            GetMyPollsModel pollsparameter = new GetMyPollsModel();
+            if (page == 0)
+            {
+                pollsparameter.pageSize = 20;
+                pollsparameter.pageNumber = 1;
+            }
+            else
+            {
+                pollsparameter.pageSize = 20;
+                pollsparameter.pageNumber = (page ?? 1);
+
+            }
+
+            var client = new RestClient(Common.CommonUtility.ApirUrl + "PublicPoll/GetPublic");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("content-type", "application/json");
+            request.AddJsonBody(pollsparameter);
+            IRestResponse<List<MyPolls>> response = client.Execute<List<MyPolls>>(request);
+            List<MyPolls> pools = null;
+            if (response.StatusCode.ToString() == "OK")
+                pools= response.Data;
+
+            return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
         private static IEnumerable<JToken> AllChildren(JToken json)
         {

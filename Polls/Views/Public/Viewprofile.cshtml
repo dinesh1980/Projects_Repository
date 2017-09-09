@@ -136,8 +136,15 @@
     <br />
     <section id="public-display-hero" class="hero">
         <div class="container">
-            <ul class="breadcrumb"><li><a href="/">Home</a></li><li><a href="#">Profile</a></li></ul>		<div class="row">
-
+            @if (Convert.ToString(Session["PageUrl"]) == "UserName")
+            {
+                <ul class="breadcrumb"><li><a href="/">Home</a></li><li><a href="#">Profile</a></li></ul>
+            }
+            else
+            {
+                <ul class="breadcrumb"><li><a href='~/Public/u/All'>Home</a></li><li><a href="#">Profile</a></li></ul>
+            }
+            <div class="row">
             </div>
         </div>
     </section>
@@ -151,213 +158,216 @@
                     @using (@Html.BeginForm("ViewProfile", "Profile", FormMethod.Post, new { @class = "form-horizontal" }))
                     {
                         <div style="margin:0;padding:0;display:inline"></div>
-                        <div class="form-group">
-                            <div class="col-md-7 inputGroupContainer">
-                            </div>
-                            <div class="col-md-5 inputGroupContainer">
-                                <div class="input-group">
-                                    <div class="thumbnails">
-                                        <ul class="clearfix">
-                                            <li style="border: 5px solid #cacaca;">
-                                                <a href="@Model.PublicProfileResponse.pictureUrl.Replace("Thumbnail", "Full")">
-                                                    <img src="@Model.PublicProfileResponse.pictureUrl" alt="">
-                                                </a>
-                                            </li>
+                            <div class="form-group">
+                                <div class="col-md-7 inputGroupContainer">
+                                </div>
+                                <div class="col-md-5 inputGroupContainer">
+                                    <div class="input-group">
+                                        <div class="thumbnails">
+                                            <ul class="clearfix">
+                                                <li style="border: 5px solid #cacaca;">
+                                                    @if (@Model.PublicProfileResponse.pictureUrl != null)
+                                                    {
+                                                        <a href="@Model.PublicProfileResponse.pictureUrl.Replace("Thumbnail", "Full")">
+                                                            <img src="@Model.PublicProfileResponse.pictureUrl" alt="">
+                                                        </a>
+                                                    }
+                                                </li>
 
-                                        </ul>
+                                            </ul>
+                                        </div>
+
+
                                     </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">First Name</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.firstName, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.PublicProfileResponse.firstName)
-                                    @Html.HiddenFor(model => model.PublicProfileResponse.countryCode)
-                                    @Html.HiddenFor(model => model.PublicProfileResponse.userId)
-                                    @Html.HiddenFor(model => model.PublicProfileResponse.id)
-                                    @Html.HiddenFor(model => model.PublicProfileResponse.gender)
-                                    @Html.HiddenFor(model => model.PublicProfileResponse.educationLevel)
-                                    @Html.HiddenFor(model => model.PublicProfileResponse.jobTitle)
-                                    @Html.HiddenFor(model => model.PublicProfileResponse.companyName)
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="form-group">
-
-                            <label class="col-md-4 control-label" for="user_email">Last Name</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.lastName, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.PublicProfileResponse.lastName)
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <label class="col-md-4 control-label" for="user_email">Job Title</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.jobTitle, new { @class = "form-control" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <label class="col-md-4 control-label" for="user_email">Education Level</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.educationLevel, new { @class = "form-control" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <label class="col-md-4 control-label" for="user_email">Last Login</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.lastLogin, new { @class = "form-control" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <label class="col-md-4 control-label" for="user_email">Member Since</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.memberSince, new { @class = "form-control" })
-                                </div>
-                            </div>
-                        </div>
-
-                        @*<div class="form-group">
-                                <label class="col-md-4 control-label" for="user_email">Company Name</label>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">First Name</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
 
-                                        @Html.DisplayFor(model => model.companyName, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.companyName)
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.firstName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PublicProfileResponse.firstName)
+                                        @Html.HiddenFor(model => model.PublicProfileResponse.countryCode)
+                                        @Html.HiddenFor(model => model.PublicProfileResponse.userId)
+                                        @Html.HiddenFor(model => model.PublicProfileResponse.id)
+                                        @Html.HiddenFor(model => model.PublicProfileResponse.gender)
+                                        @Html.HiddenFor(model => model.PublicProfileResponse.educationLevel)
+                                        @Html.HiddenFor(model => model.PublicProfileResponse.jobTitle)
+                                        @Html.HiddenFor(model => model.PublicProfileResponse.companyName)
                                     </div>
                                 </div>
-                            </div>*@
 
-                        @*<div class="form-group">
+                            </div>
+                            <div class="form-group">
+
+                                <label class="col-md-4 control-label" for="user_email">Last Name</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.lastName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PublicProfileResponse.lastName)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
                                 <label class="col-md-4 control-label" for="user_email">Job Title</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
 
-                                        @Html.DisplayFor(model => model.jobTitle, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.jobTitle)
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.jobTitle, new { @class = "form-control" })
                                     </div>
                                 </div>
-                            </div>*@
-                        @*<div class="form-group">
-                                <label class="col-md-4 control-label" for="user_email">Gender</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-
-                                        @Html.DisplayFor(model => model.gender, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.gender)
-                                    </div>
-                                </div>
-                            </div>*@
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">Addresss</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.addressLine1, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.PublicProfileResponse.addressLine1)
-                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">City</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.addressCity, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.PublicProfileResponse.addressCity)
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">State</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.addressState, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.PublicProfileResponse.addressState)
-                                </div>
-                            </div>
-                        </div>
+                            <div class="form-group">
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">Country</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.addressCountry, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.PublicProfileResponse.addressCountry)
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">Zip</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.addressZip, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.PublicProfileResponse.addressZip)
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">Birth Date</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class='input-group'>
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.birthDate, new { @class = "form-control" })
-                                    @*<span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>*@
-                                </div>
-                                @Html.ValidationMessageFor(model => model.PublicProfileResponse.birthDate)
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="user_email">View Counter</label>
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class='input-group'>
-                                    @Html.DisplayFor(model => model.PublicProfileResponse.viewCounter, new { @class = "form-control" })
-                                    @*<span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>*@
-                                </div>
-                                @Html.ValidationMessageFor(model => model.PublicProfileResponse.birthDate)
-                            </div>
-                        </div>
-
-
-
-                        @*<div class="form-group">
                                 <label class="col-md-4 control-label" for="user_email">Education Level</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
-                                        @Html.DisplayFor(model => model.educationLevel, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.educationLevel)
+
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.educationLevel, new { @class = "form-control" })
                                     </div>
                                 </div>
-                            </div>*@
+                            </div>
+                            <div class="form-group">
+
+                                <label class="col-md-4 control-label" for="user_email">Last Login</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.lastLogin, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <label class="col-md-4 control-label" for="user_email">Member Since</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.memberSince, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*<div class="form-group">
+                                    <label class="col-md-4 control-label" for="user_email">Company Name</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+
+                                            @Html.DisplayFor(model => model.companyName, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.companyName)
+                                        </div>
+                                    </div>
+                                </div>*@
+
+                            @*<div class="form-group">
+                                    <label class="col-md-4 control-label" for="user_email">Job Title</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+
+                                            @Html.DisplayFor(model => model.jobTitle, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.jobTitle)
+                                        </div>
+                                    </div>
+                                </div>*@
+                            @*<div class="form-group">
+                                    <label class="col-md-4 control-label" for="user_email">Gender</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+
+                                            @Html.DisplayFor(model => model.gender, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.gender)
+                                        </div>
+                                    </div>
+                                </div>*@
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">Addresss</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.addressLine1, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PublicProfileResponse.addressLine1)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">City</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.addressCity, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PublicProfileResponse.addressCity)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">State</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.addressState, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PublicProfileResponse.addressState)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">Country</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.addressCountry, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PublicProfileResponse.addressCountry)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">Zip</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.addressZip, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PublicProfileResponse.addressZip)
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">Birth Date</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class='input-group'>
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.birthDate, new { @class = "form-control" })
+                                        @*<span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>*@
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.PublicProfileResponse.birthDate)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user_email">View Counter</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class='input-group'>
+                                        @Html.DisplayFor(model => model.PublicProfileResponse.viewCounter, new { @class = "form-control" })
+                                        @*<span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>*@
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.PublicProfileResponse.birthDate)
+                                </div>
+                            </div>
+
+
+
+                            @*<div class="form-group">
+                                    <label class="col-md-4 control-label" for="user_email">Education Level</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            @Html.DisplayFor(model => model.educationLevel, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.educationLevel)
+                                        </div>
+                                    </div>
+                                </div>*@
                     if (Model.PublicProfileResponse.isPhonePublic)
                     {
 

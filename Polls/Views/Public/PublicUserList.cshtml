@@ -16,10 +16,22 @@
 
 
 
-                    <i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;<a href='@Url.Action("ViewProfile", "Public", new { userId = @item.userId})'>@item.firstName  @item.lastName</a>
+                    <i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;<a href='@Url.Action("ViewProfile", "Public", new { userId = @item.userId })'>@item.firstName  @item.lastName</a>
                     <div class="pull-right" style="padding-right:15px">
-                        <span class="label label-success" style="margin-right: 10px;">@item.gender</span>
+                        @if (item.gender.ToUpper() == "M")
+                        {
+                            <span class="label label-success" style="margin-right: 10px;">Male</span>
+                        }
+                        else if (item.gender.ToUpper() == "F")
+                        {
+                            <span class="label label-success" style="margin-right: 10px;">Female</span>
+                        }
+                        else
+                        {
+                            <span class="label label-success" style="margin-right: 10px;">@item.gender</span>
+                        }
                     </div>
+
                 </li>
             }
 
