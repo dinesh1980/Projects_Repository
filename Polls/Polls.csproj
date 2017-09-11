@@ -327,6 +327,7 @@
     <Content Include="Views\Home\MyPolls.cshtml" />
     <Content Include="Views\Public\UserName.cshtml" />
     <Content Include="Views\Public\PublicUserList.cshtml" />
+    <Content Include="Views\Public\PublicPolls.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
