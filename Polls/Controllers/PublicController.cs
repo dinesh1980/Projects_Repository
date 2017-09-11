@@ -97,9 +97,10 @@ namespace Polls.Controllers
                 pools = response.ToList();
 
             Session["PageUrl"] = "UserName";
-    
+
             return View(pools.ToPagedList(page ?? 1, 20));
         }
+
 
         private List<MyPolls> GetPublicPolls(int? page)
         {
@@ -109,7 +110,8 @@ namespace Polls.Controllers
                 pollsparameter.pageSize = 20;
                 pollsparameter.pageNumber = 1;
             }
-            else {
+            else
+            {
                 pollsparameter.pageSize = 20;
                 pollsparameter.pageNumber = (page ?? 1);
 
@@ -153,19 +155,23 @@ namespace Polls.Controllers
                 pollResultviewModel.PollResults = response.Data.OrderBy(c => c.choice).ToList();
             }
 
-            var client_poll = new RestClient(Common.CommonUtility.ApirUrl + "PublicPoll/GetPublic");
-            IRestResponse<List<MyPolls>> response_poll = client_poll.Execute<List<MyPolls>>(request);
-            if (response_poll.StatusCode.ToString() == "OK" && response_poll.Data != null)
+
+
+            List<MyPolls> response_poll = GetPublicPolls(0);
+            if (response_poll != null)
             {
                 // pollResultviewModel.myPolls = response_poll.Data;
-                var pollresult = response_poll.Data.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
-                var image = pollresult.firstImagePath;
-                var secimage = pollresult.secondImagePath;
-                pollresult.firstImagePath = Common.CommonUtility.ThumbnailBaseUrl + pollresult.firstImagePath;
-                pollresult.secondImagePath = Common.CommonUtility.ThumbnailBaseUrl + pollresult.secondImagePath;
-                pollresult.firstImagePathFull = Common.CommonUtility.FullImageBaseUrl + image;
-                pollresult.secondImagePathfull = Common.CommonUtility.FullImageBaseUrl + secimage;
-                pollResultviewModel.myPolls = pollresult;
+                var pollresult = response_poll.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
+                if (pollresult != null)
+                {
+                    var image = string.IsNullOrEmpty(pollresult.firstImagePath) ? "" : pollresult.firstImagePath;
+                    var secimage = string.IsNullOrEmpty(pollresult.secondImagePath) ? "" : pollresult.secondImagePath;
+                    pollresult.firstImagePath = Common.CommonUtility.ThumbnailBaseUrl + pollresult.firstImagePath;
+                    pollresult.secondImagePath = Common.CommonUtility.ThumbnailBaseUrl + pollresult.secondImagePath;
+                    pollresult.firstImagePathFull = Common.CommonUtility.FullImageBaseUrl + image;
+                    pollresult.secondImagePathfull = Common.CommonUtility.FullImageBaseUrl + secimage;
+                    pollResultviewModel.myPolls = pollresult;
+                }
                 return View(pollResultviewModel);
             }
             else
@@ -224,7 +230,7 @@ namespace Polls.Controllers
             JsonItem<ViewPublicProfileResponse> profiles = new JsonItem<ViewPublicProfileResponse>();
             if (response.StatusCode.ToString() == "OK")
             {
-                JObject jobject = JObject.Parse(response.Content);
+                // JObject jobject = JObject.Parse(response.Content);
 
                 //var resultObjects = AllChildren(JObject.Parse(response.Content))
                 //.First(c => c.Type == JTokenType.Array && c.Path.Contains(jobject.Path))
@@ -241,7 +247,8 @@ namespace Polls.Controllers
         }
 
         [Route("Public/PublicPolls", Name = "PublicPolls")]
-        public ActionResult PublicPolls(int? page) {
+        public ActionResult PublicPolls(int? page)
+        {
             GetMyPollsModel pollsparameter = new GetMyPollsModel();
             if (page == 0)
             {
@@ -262,7 +269,7 @@ namespace Polls.Controllers
             IRestResponse<List<MyPolls>> response = client.Execute<List<MyPolls>>(request);
             List<MyPolls> pools = null;
             if (response.StatusCode.ToString() == "OK")
-                pools= response.Data;
+                pools = response.Data;
 
             return View(pools.ToPagedList(pollsparameter.pageNumber, pollsparameter.pageSize));
         }
@@ -277,7 +284,7 @@ namespace Polls.Controllers
                 }
             }
         }
-               
+
 
     }
 

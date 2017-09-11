@@ -114,14 +114,12 @@ namespace Polls.Controllers
             if (response.StatusCode.ToString() == "OK" && response.Data != null)
             {
                 pollResultviewModel.PollResults = response.Data.OrderBy(c => c.choice).ToList();
-            }
-
-            var client_poll = new RestClient(Common.CommonUtility.ApirUrl + "PublicPoll/GetPublic");
-            IRestResponse<List<MyPolls>> response_poll = client_poll.Execute<List<MyPolls>>(request);
-            if (response_poll.StatusCode.ToString() == "OK" && response_poll.Data != null)
+            }       
+           List<MyPolls> response_poll = GetPublicPolls(0);
+            if (response_poll!=null && response_poll.Count>0)
             {
                 // pollResultviewModel.myPolls = response_poll.Data;
-                var pollresult = response_poll.Data.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
+                var pollresult = response_poll.Where(m => m.pollId == Convert.ToInt32(pollId)).FirstOrDefault();
                 if (pollresult != null)
                 {
                     string FirstImage = pollresult.firstImagePath;
@@ -145,7 +143,31 @@ namespace Polls.Controllers
             return View(); // modify as per your need
         }
 
+        private List<MyPolls> GetPublicPolls(int? page)
+        {
+            GetMyPollsModel pollsparameter = new GetMyPollsModel();
+            if (page == 0)
+            {
+                pollsparameter.pageSize = 100;
+                pollsparameter.pageNumber = 1;
+            }
+            else
+            {
+                pollsparameter.pageSize = 20;
+                pollsparameter.pageNumber = (page ?? 1);
 
+            }
+
+            var client = new RestClient(Common.CommonUtility.ApirUrl + "PublicPoll/GetPublic");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("content-type", "application/json");
+            request.AddJsonBody(pollsparameter);
+            IRestResponse<List<MyPolls>> response = client.Execute<List<MyPolls>>(request);
+            if (response.StatusCode.ToString() == "OK")
+                return response.Data;
+            else
+                return new List<MyPolls>();
+        }
 
         public ActionResult MyPolls(int? page, string catname = "", string username = "")
         {
